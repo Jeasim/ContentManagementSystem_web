@@ -1,3 +1,7 @@
+<?php
+	require_once("partial/header.php");
+?>
+
 <div id="content">
 
             <section class="full-section" id="section-23">
@@ -317,3 +321,6 @@
 			</section><!-- full-section -->
 
 		</div><!-- CONTENT -->
+
+<?php
+	require_once("partial/footer.php");
