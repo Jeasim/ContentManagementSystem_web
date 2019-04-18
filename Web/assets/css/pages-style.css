@@ -149,17 +149,24 @@
 ***********************************************************************************/
 
 #header {
+	display: flex;
+	justify-content: space-between;
 	position: relative;
 	-webkit-transition: all 0.3s;
 			transition: all 0.3s;
+	height: 100px;
 }
 
 #header [class^="col-"] {
 	position: static;
+	line-height: 75%;
 }
 
+
 #header .container {
+	width: 100%;
 	position: relative;
+	padding: 0 100px;
 }
 
 /***********************************************************************************
@@ -173,6 +180,8 @@
 }
 
 #logo img {
+	height: 90px;
+	width: auto;
 }
 
 /***********************************************************************************

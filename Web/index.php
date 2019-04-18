@@ -287,12 +287,12 @@
 
 			<section class="full-section parallax" id="section-15" data-stellar-background-ratio="0.1">
 
-                <div class="container">
+                <div class="container" id="partenaires-container">
 
                     <div id="wrap_titre_partenaires" class="row">
                         <div class="col-md-5 border_right_verte">
                             <h3>Partenaires financiers</h3>
-                            <div>
+                            <div class="partenaires-img-container">
 
                                 <img src="images/logos/mees.png" alt="">
 								<img src="images/logos/mesi.png" alt="">
@@ -301,14 +301,14 @@
                         </div>
                         <div class="col-md-5 border_right_verte">
                             <h3>Cégeps affiliés</h3>
-                            <div>
+                            <div class="partenaires-img-container">
                                 <img src="images/logos/dawson.jpg" alt="">
                                 <img src="images/logos/vieux-montreal.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-5">
                             <h3>Membre des réseaux</h3>
-                            <div>
+                            <div class="partenaires-img-container">
                                 <img src="images/logos/transtech.jpg" alt="">
 								<img src="images/logos/rqis.jpg" alt="">
 								<img src="images/logos/qc_innove.jpg" alt="">

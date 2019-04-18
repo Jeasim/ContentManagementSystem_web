@@ -1845,6 +1845,7 @@ input[type="button"]:focus {
 #section-15 {
     margin-top: 5px;
     padding: 0px 0 5px;
+    width: 100;
     background-image: url(../../images/backgrounds/bg-10.jpg);
 }
 
@@ -2987,13 +2988,42 @@ p a:hover{
     background-color:#f5a000;
 }
 
-#wrap_titre_partenaires div img:first-child{
-    margin-right:50px;
+#partenaires-container{
+    width: 100%;
+    margin: 0 auto;
 }
+
+#wrap_titre_partenaires{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#wrap_titre_partenaires div:first-child{
+    padding: 0 30px;
+}
+
+
 #wrap_titre_partenaires h3{
-    font-size:18px;
+    font-size:1.3em;
     text-align:center;
-	font-weight:bold;
+    font-weight:bold;
+    margin-bottom: 1em;
+}
+
+#wrap_titre_partenaires div:nth-child(3){
+    width: 50%;
+}
+
+.partenaires-img-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.partenaires-img-container div div:nth-child(3){
+    justify-content: space-between;
 }
 
 #menu li ul{
