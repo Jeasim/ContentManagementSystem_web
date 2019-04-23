@@ -1,4 +1,8 @@
 <?php
+	require_once("action/Index_Action.php");
+	$action = new Index_Action();
+	$action->execute();
+
 	require_once("partial/header.php");
 ?>
 

@@ -1,4 +1,8 @@
 <?php
+	require_once("action/Conception_handicap_Action.php");
+	$action = new Conception_handicap_Action();
+	$action->execute();
+
 	require_once("partial/header.php");
 	require_once("partial/a_propos_header.php");
 ?>

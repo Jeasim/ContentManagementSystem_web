@@ -1,6 +1,10 @@
 <?php
-	require_once("partial/header.php");
-	require_once("partial/a_propos_header.php");
+require_once("action/Champs_expertise_Action.php");
+$action = new Champs_expertise_Action();
+$action->execute();
+
+require_once("partial/header.php");
+require_once("partial/a_propos_header.php");
 ?>
 
 <div class="blog-article">
