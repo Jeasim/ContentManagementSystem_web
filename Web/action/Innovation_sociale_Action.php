@@ -4,7 +4,7 @@
 	class Innovation_sociale_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "L'innovation sociale");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "L'innovation sociale", "Qui sommes-nous?", "qui_sommes_nous.php", "À propos");
 		}
 
 		protected function executeAction() {

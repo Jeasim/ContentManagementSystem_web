@@ -1,3 +1,5 @@
+
+</div><!-- CONTENT -->
 </div><!-- PAGE-WRAPPER -->
 
 <!-- FOOTER -->

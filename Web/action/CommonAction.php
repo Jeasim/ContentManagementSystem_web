@@ -7,10 +7,16 @@
 
 		private $pageVisibility;
 		private $pageTitle;
+		private $parentPageTitle;
+		private $parentPageURL;
+		private $section;
 
-		public function __construct($pageVisibility, $pageTitle) {
+		public function __construct($pageVisibility, $pageTitle, $parentPageTitle = null, $parentPageURL = null, $section = null) {
 			$this->pageVisibility = $pageVisibility;
 			$this->pageTitle = $pageTitle;
+			$this->parentPageTitle = $parentPageTitle;
+			$this->parentPageURL = $parentPageURL;
+			$this->section = $section;
 		}
 
 		public function execute() {
@@ -40,5 +46,17 @@
 
 		public function getPageTitle() {
 			return $this->pageTitle;
+		}
+
+		public function getParentPageTitle() {
+			return $this->parentPageTitle;
+		}
+
+		public function getParentPageURL() {
+			return $this->parentPageURL;
+		}
+
+		public function getSection() {
+			return $this->section;
 		}
 	}

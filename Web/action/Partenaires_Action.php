@@ -4,7 +4,7 @@
 	class Partenaires_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Nos partenaires");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Nos partenaires", "Qui sommes-nous?", "qui_sommes_nous.php", "À propos");
 		}
 
 		protected function executeAction() {
