@@ -13,7 +13,7 @@
 		<div class="col-sm-5">
 			<div class="widget widget-categories">
 				<ul>
-					<li class="active"><a href="recherche_appliquee.php">Recherche appliquée</a></li>
+					<li><a href="recherche_appliquee.php">Recherche appliquée</a></li>
 					<li><a href="services_accompagnement.php">Services d'accompagnement en innovation sociale</a></li>
 					<li><a href="laboratoire_technologies_adaptatives.php">Laboratoire en technologies adaptatives</a></li>
 					<li><a href="formation_transfert.php">Formation et transfert</a></li>
