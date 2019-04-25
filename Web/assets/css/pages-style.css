@@ -1858,6 +1858,17 @@ a.search-form-close {
 	padding: 5px 20px;
 }
 
+.social-media{
+	margin-left: 20px;
+	max-width: 200px;
+}
+
+.social-media img{
+	max-width: 75px;
+	height: auto;
+}
+
+
 /***********************************************************************************
 *	- ELEMENTS
 ***********************************************************************************/
