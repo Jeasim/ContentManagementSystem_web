@@ -183,9 +183,33 @@
                             <li >
                                 <a href="nous_joindre.php">Nous Joindre</a>
                             </li>
-                        </ul>
 
+                        <?php
+                        if($_SESSION["visibility"] === CommonAction::$VISIBILITY_ADMINISTRATOR){
+                            ?>
+                                <li>
+                                    <a href="accueilAdmin.php">Administrateur</a>
+                                    <ul>
+                                        <li>
+                                            <a href="">Modifier la page "Accueil"</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Modifier la page "Équipe"</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Modifier la page "Projets"</a>
+                                        </li>
+                                        <li>
+                                            <a href="?logout=true">Se déconnecter</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php
+                        }
+                    ?>
+                        </ul>
                     </nav>
+
 
                 </div><!-- col -->
             </div><!-- row -->

@@ -1,7 +1,7 @@
 <?php
-	require_once("action/Admin_Action.php");
+	require_once("action/PortailAdmin_Action.php");
 
-	$action = new Admin_Action();
+	$action = new PortailAdmin_Action();
 	$action->execute();
 
 	require_once("partial/header.php");
@@ -14,7 +14,7 @@
 			<div class="form-title">Portail administrateur</div>
 		</div>
 
-		<form action="admin.php" method="post">
+		<form action="portailAdmin.php" method="post">
 
 			<div class="form-single-line">
 				<div class="form-info-label">Nom d'usager: </div>
