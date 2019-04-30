@@ -24,6 +24,7 @@
  *	 - SHOP
  *	 - CONTACT
  *	 - ELEMENTS
+ *   - ADMIN
  *	+ RESPONSIVE
  *	 - LARGE DISPALY (>1200px)
  *	 - SMALL DISPLAY (TABLETS)
@@ -1936,6 +1937,46 @@ a.search-form-close {
 
 .elements-section h2 {
 	margin-bottom: 30px;
+}
+
+
+/***********************************************************************************
+*	- ADMIN
+***********************************************************************************/
+
+#form-connection-admin{
+	margin: 150px auto;
+	padding: 50px 50px;
+	width: 25%;
+	border: 2px solid #0bbff2;
+	border-radius: 10px;
+}
+
+.form-title{
+	text-align: center;
+	font-size: 2em;
+	padding: 20px 0;
+}
+
+.form-single-line{
+	padding: 10px 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-info-input{
+	width: 100%;
+}
+
+#form-connection-button{
+	margin-top: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+.form-connexion-error{
+	padding-top: 15px;
+	text-align: center;
 }
 
 /***********************************************************************************
