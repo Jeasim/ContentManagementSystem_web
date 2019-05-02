@@ -12,16 +12,15 @@
 
 <form action="accueilAdmin.php" method="post">
 
-	<textarea name="editor" id="editor" rows="10" cols="80">
-		<?php
-			$texte = TexteModifiableDAO::LireTexte("accueil", "entete");
-			echo $texte;
-		?>
+	<textarea name="editeur" id="editor" rows="10" cols="80">
+		<?= TexteModifiableDAO::LireTexte("accueil", "entete"); ?>
 	</textarea>
 
 	<script>
-		CKEDITOR.replace( 'editor' );
+		CKEDITOR.replace( 'editeur' );
 	</script>
+
+	<button type="submit"> Soummettre </button>
 
 </form>
 

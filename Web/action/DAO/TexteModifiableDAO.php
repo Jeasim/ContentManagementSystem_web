@@ -20,4 +20,11 @@
 			return $contenu['CONTENU'];
 		}
 
+		public static function updateTexteEnTete($texteModif){
+			$connection = Connection::getConnection();
+
+			$statement = "UPDATE accueil SET contenu=? WHERE section='entete'";
+			$connection->prepare($statement)->execute([$texteModif]);
+		}
+
 	}
