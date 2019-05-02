@@ -41,41 +41,5 @@
 
 	</div><!-- PAGE-WRAPPER -->
 
-<!-- FOOTER -->
-<footer class="site_footer">
-    <div id="footer-bottom">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5">
-
-                    <div class="widget widget-text">
-
-                        <div>
-                            <p class="last">
-                                <img src="assets/images/logo-footer.png" alt="">
-                            </p>
-                        </div>
-
-                    </div><!-- widget-text -->
-
-                </div><!-- col -->
-                <div class="col-sm-2">
-                        <a href="plan_du_site.php">Plan du site</a>
-                </div>
-                <div class="col-sm-5">
-
-                    <div class="widget widget-text">
-
-                        <div>
-                            <p class="copy-right">Conception Web par <a href="http://conceptionfocus.ca/" target="_blank">Conception Focus</a></p>
-                        </div>
-
-                    </div><!-- widget-text -->
-
-                </div><!-- col -->
-            </div><!-- row -->
-        </div><!-- container -->
-
 <?php
 	require_once("partial/footer.php");

@@ -20,10 +20,6 @@
 						<p>DES PERSONNES EN SITUATION DE HANDICAP</p>
 					</h1>
 
-					<!--<p>Le Centre de recherche pour l’inclusion scolaire et professionnelle des étudiants en situation de handicap (CRISPESH) est un centre collégial de transfert de technologie en pratiques sociales novatrices (CCTT-PSN), né d’un partenariat entre le Cégep du Vieux Montréal et le Collège Dawson.</p>-->
-
-
-
 				</div>
 			</div>
 		</div>
@@ -37,7 +33,6 @@
 	<div class="row">
 		<div class="col-sm-12">
 
-			<!--<h2>Innover pour favoriser la participation sociale des personnes en situation de handicap</h2>-->
 			<br>
 			<p><br/>Le Centre de recherche pour l’inclusion des personnes en situation de handicap (CRISPESH) est un centre collégial de transfert de technologie en pratiques sociales novatrices (CCTT-PSN), né d’un partenariat entre le <a href="http://www.cvm.qc.ca/Pages/index.aspx" target="_blank">Cégep du Vieux Montréal&nbsp;</a>et le <a href="http://www.dawsoncollege.qc.ca/french/" target="_blank">Collège Dawson</a>. Le Centre a été reconnu en octobre 2010 par le <a href="http://www.education.gouv.qc.ca/" target="_blank">Ministère de l’Éducation et de l'Enseignement Supérieur.</a></p>
 			<p>En juillet 2015, le cégep du Vieux Montréal et le collège Dawson confiaient la gestion du CRISPESH à un organisme<br> à but non lucratif du même nom créé dans le but de réaliser le mandat du Centre.</p>
@@ -45,7 +40,6 @@
 			<br>
 			<p>Le CRISPESH fait partie du <a href="http://reseautranstech.qc.ca/" target="_blank">Réseau Trans-tech</a>, un regroupement de 49 centres collégiaux de transfert de technologie réunissant plus de 1000 experts à travers le Québec qui se dédient à l’innovation au moyen de la recherche appliquée et du transfert.</p>
 			<br>
-			<!--<a class="btn btn-blue" href="#">Voir nos projets</a>-->
 
 		</div><!-- col -->
 	</div><!-- row -->
