@@ -1,5 +1,6 @@
 <?php
 	require_once("action/AccueilAdmin_Action.php");
+	require_once("action/DAO/TexteModifiableDAO.php");
 
 	$action = new AccueilAdmin_Action();
 	$action->execute();
@@ -11,7 +12,12 @@
 
 <form action="accueilAdmin.php" method="post">
 
-	<textarea name="editor" id="editor" rows="10" cols="80"></textarea>
+	<textarea name="editor" id="editor" rows="10" cols="80">
+		<?php
+			$texte = TexteModifiableDAO::LireTexte("accueil", "entete");
+			echo $texte;
+		?>
+	</textarea>
 
 	<script>
 		CKEDITOR.replace( 'editor' );

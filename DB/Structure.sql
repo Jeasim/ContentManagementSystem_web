@@ -1,7 +1,16 @@
-CREATE TABLE usagers (
+DROP TABLE accueil;
+
+CREATE TABLE accueil (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
-    nom_usager VARCHAR2(30),
-    motDePasse VARCHAR2(60),
+    contenu LONG,
+    section VARCHAR2(20),
     
-    CONSTRAINT pk_usagers PRIMARY KEY (id)
+    CONSTRAINT pk_accueil PRIMARY KEY (id)
 );
+
+INSERT INTO accueil
+(contenu, section)
+VALUES
+('INNOVER POUR FAVORISER LA PARTICIPATION SOCIALE
+
+DES PERSONNES EN SITUATION DE HANDICAP', 'entete');
