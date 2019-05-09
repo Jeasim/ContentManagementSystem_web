@@ -6,8 +6,8 @@
 		public static function lireTexte($section) {
 
 			$connection = Connection::getConnection();
-
-			$statement = $connection->prepare("SELECT * FROM accueil");
+			$statement = $connection->prepare("SELECT * FROM accueil WHERE section=?");
+			$statement->bindParam(1, $section);
 			$statement->setFetchMode(PDO::FETCH_ASSOC);
 			$statement->execute();
 

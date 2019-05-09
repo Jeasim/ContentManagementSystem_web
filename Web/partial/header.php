@@ -191,7 +191,7 @@
                                     <a href="accueilAdmin.php">Administrateur</a>
                                     <ul>
                                         <li>
-                                            <a href="">Modifier la page "Accueil"</a>
+                                            <a href="adminModifAccueil.php">Modifier la page "Accueil"</a>
                                         </li>
                                         <li>
                                             <a href="">Modifier la page "Équipe"</a>

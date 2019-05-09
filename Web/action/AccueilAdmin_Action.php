@@ -11,8 +11,6 @@
 		}
 
 		protected function executeAction() {
-			if(!empty($_POST["editeur"])){
-				TexteModifiableDAO::updateTexteAccueil($_POST["editeur"], "entete");
-			}
+
 		}
 	}

@@ -31,8 +31,7 @@
 
 			<div class=" modifiable" id="accueil-presentation">
 				<br>
-				<p><br/>Le Centre de recherche pour l’inclusion des personnes en situation de handicap (CRISPESH) est un centre collégial de transfert de technologie en pratiques sociales novatrices (CCTT-PSN), né d’un partenariat entre le <a href="http://www.cvm.qc.ca/Pages/index.aspx" target="_blank">Cégep du Vieux Montréal&nbsp;</a>et le <a href="http://www.dawsoncollege.qc.ca/french/" target="_blank">Collège Dawson</a>. Le Centre a été reconnu en octobre 2010 par le <a href="http://www.education.gouv.qc.ca/" target="_blank">Ministère de l’Éducation et de l'Enseignement Supérieur.</a></p>
-				<p>En juillet 2015, le cégep du Vieux Montréal et le collège Dawson confiaient la gestion du CRISPESH à un organisme<br> à but non lucratif du même nom créé dans le but de réaliser le mandat du Centre.</p>
+				<?= $action->contenuPresentation ?>
 			</div><!-- texte modifiable par l'admin - "Présentation accueil" -->
 
 			<center><img src="assets/images/logo.png" alt=""></center>
