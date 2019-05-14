@@ -11,7 +11,7 @@
 		}
 
 		protected function executeAction() {
-			$this->contenuEnTete = TexteModifiableDAO::lireTexte("entete");
-			$this->contenuPresentation = TexteModifiableDAO::lireTexte("presentation");
+			$this->contenuEnTete = TexteModifiableDAO::lireTexteAccueil("entete");
+			$this->contenuPresentation = TexteModifiableDAO::lireTexteAccueil("presentation");
 		}
 	}

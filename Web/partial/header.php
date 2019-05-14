@@ -194,7 +194,7 @@
                                             <a href="adminModifAccueil.php">Modifier la page "Accueil"</a>
                                         </li>
                                         <li>
-                                            <a href="">Modifier la page "Équipe"</a>
+                                            <a href="adminModifEquipe.php">Modifier la page "Équipe"</a>
                                         </li>
                                         <li>
                                             <a href="">Modifier la page "Projets"</a>

@@ -8,6 +8,7 @@
 	require_once("partial/header.php");
 ?>
 
+<script src="js\adminModifAccueil.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 
 <div class="contenu-page-ModifAccueil">
@@ -18,8 +19,8 @@
 
 		<div class="liste-sections-modif">
 			<ul>
-				<li> <a href="?section-modif=entete">Entête</a></li>
-				<li> <a href="?section-modif=presentation">Présentation</a></li>
+				<li> <a onclick="choisirSection(this)">Entête</a></li>
+				<li> <a onclick="choisirSection(this)">Présentation</a></li>
 			</ul>
 		</div>
 
@@ -33,7 +34,7 @@
 		<form action="adminModifAccueil.php" method="post">
 
 			<textarea name="editeur" id="editor">
-				<?= $action->contenuSectionModif ?>
+
 			</textarea>
 
 			<script>

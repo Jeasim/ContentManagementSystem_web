@@ -3,7 +3,7 @@
 
 	class TexteModifiableDAO{
 
-		public static function lireTexte($section) {
+		public static function lireTexteAccueil($section) {
 
 			$connection = Connection::getConnection();
 			$statement = $connection->prepare("SELECT * FROM accueil WHERE section=?");
@@ -25,6 +25,23 @@
 
 			$statement = "UPDATE accueil SET contenu=? WHERE section=?";
 			$connection->prepare($statement)->execute([$texteModif, $section]);
+		}
+
+
+		public static function fetchDepartements() {
+
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT * FROM departements");
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			$departements = [];
+
+			while ($row = $statement->fetch()) {
+				$departements[] = $row['NOM'];
+			}
+
+			return $departements;
 		}
 
 	}
