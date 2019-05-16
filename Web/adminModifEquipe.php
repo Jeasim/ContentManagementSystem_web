@@ -8,7 +8,7 @@
 	require_once("partial/header.php");
 ?>
 
-<select name="planete">
+<select name="departement">
 	<?php
 		foreach ($action->departements as $departement) {
 			?>

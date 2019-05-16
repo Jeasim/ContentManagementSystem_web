@@ -11,37 +11,50 @@
 <script src="js\adminModifAccueil.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 
+<h1 class="page-ModifAccueil-h1">Modifier la page d'acceuil</h1>
+
 <div class="contenu-page-ModifAccueil">
 
-	<div class="selection-section-modif">
-
-		<h1>Sélectionner la section que vous désirez modifier</h1>
-
-		<div class="liste-sections-modif">
-			<ul>
-				<li> <a onclick="choisirSection(this)">Entête</a></li>
-				<li> <a onclick="choisirSection(this)">Présentation</a></li>
-			</ul>
-		</div>
-
-
-		<div class="img-section-modif img-modif-<?= $action->sectionModif ?> "></div>
-
-	</div>
-
 	<div class="form-ModifAccueil">
+		<div class="label-section">
+			<h2>Entête</h2>
+			<img src="images/admin/modif-accueil-entete.png" alt="Section entête" class="img-section-modif">
+		</div>
 
 		<form action="adminModifAccueil.php" method="post">
 
-			<textarea name="editeur" id="editor">
+			<textarea name="editeurEntete" id="editeurEntete">
 
 			</textarea>
 
 			<script>
-				CKEDITOR.replace( 'editeur' );
+				CKEDITOR.replace( 'editeurEntete' );
 			</script>
 
-			<button type="submit" class="btn-soummettre"> Soummettre </button>
+			<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
+
+		</form>
+	</div>
+
+
+	<div class="form-ModifAccueil">
+
+		<div class="label-section">
+			<h2>Présentation</h2>
+			<img src="images/admin/modif-accueil-presentation.png" alt="Section présentation" class="img-section-modif">
+		</div>
+
+		<form action="adminModifAccueil.php" method="post">
+
+			<textarea name="editeurPresentation" id="editeurPresentation">
+
+			</textarea>
+
+			<script>
+				CKEDITOR.replace( 'editeurPresentation' );
+			</script>
+
+			<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
 
 		</form>
 	</div>

@@ -13,7 +13,6 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'tools', groups: [ 'tools' ] },
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'others', groups: [ 'others' ] },
-		'/',
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
 		{ name: 'styles', groups: [ 'styles' ] },

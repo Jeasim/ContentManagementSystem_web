@@ -3,8 +3,7 @@
 
 	class AdminModifAccueil_Action extends CommonAction {
 
-		public $sectionModif = "entete";
-		public $contenuSectionModif;
+
 
 		public function __construct() {
 			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Modification 'Accueil'", null, null, "Administrateur");
@@ -14,9 +13,7 @@
 
 			$this->contenuSectionModif = TexteModifiableDAO::lireTexteAccueil($this->sectionModif);
 
-			if(!empty($_GET["section-modif"])){
-
-				$this->sectionModif = $_GET["section-modif"];
+			if(!empty($_POST["editeurEntete"])){
 				$this->contenuSectionModif = TexteModifiableDAO::lireTexteAccueil($this->sectionModif);
 			}
 

@@ -8,28 +8,28 @@ DROP TABLE departements;
 -- CREATE TABLES --
 
 CREATE TABLE accueil (
-    id NUMBER GENERATED ALWAYS AS IDENTITY,
-    contenu LONG,
+    id      NUMBER GENERATED ALWAYS AS IDENTITY,
+    contenu VARCHAR(4000),
     section VARCHAR2(20),
     
     CONSTRAINT pk_accueil PRIMARY KEY (id)
 );
 
 CREATE TABLE departements(
-    id NUMBER GENERATED ALWAYS AS IDENTITY,
-    nom VARCHAR2(250) NOT NULL,
+    id      NUMBER GENERATED ALWAYS AS IDENTITY,
+    nom     VARCHAR2(400) NOT NULL,
     
     CONSTRAINT pk_departments PRIMARY KEY (id)
 );
 
 CREATE TABLE employes (
-    id NUMBER GENERATED ALWAYS AS IDENTITY,
-    nom VARCHAR2(40),
-    id_departement NUMBER,
-    description VARCHAR2(400),
+    id              NUMBER GENERATED ALWAYS AS IDENTITY,
+    nom             VARCHAR2(40),
+    id_departement  NUMBER,
+    description     VARCHAR2(4000),
     
-    CONSTRAINT pk_employes PRIMARY KEY (id),
-    FOREIGN KEY (id_departement) REFERENCES departements(id)
+    CONSTRAINT pk_employes          PRIMARY KEY (id),
+    FOREIGN KEY (id_departement)    REFERENCES departements(id)
 );
 
 
