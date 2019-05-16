@@ -8,12 +8,11 @@
 	require_once("partial/header.php");
 ?>
 
-<script src="js\adminModifAccueil.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 
-<h1 class="page-ModifAccueil-h1">Modifier la page d'acceuil</h1>
+<h1 class="page-Modif-h1">Modifier la page d'acceuil</h1>
 
-<div class="contenu-page-ModifAccueil">
+<div class="contenu-page-Modif">
 
 	<div class="form-ModifAccueil">
 		<div class="label-section">

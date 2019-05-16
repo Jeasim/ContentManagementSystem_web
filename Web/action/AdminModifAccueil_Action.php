@@ -14,8 +14,8 @@
 
 		protected function executeAction() {
 
-			$this->contenuEntete = utf8_decode(TexteModifiableDAO::lireTexteAccueil("entete"));
-			$this->contenuPresentation = utf8_decode(TexteModifiableDAO::lireTexteAccueil("presentation"));
+			$this->contenuEntete = TexteModifiableDAO::lireTexteAccueil("entete");
+			$this->contenuPresentation = TexteModifiableDAO::lireTexteAccueil("presentation");
 
 			if(!empty($_POST["editeurPresentation"])){
 				$contenu = utf8_encode ($_POST["editeurPresentation"] );

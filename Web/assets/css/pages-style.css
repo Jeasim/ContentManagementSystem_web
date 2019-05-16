@@ -1944,6 +1944,13 @@ a.search-form-close {
 *	- ADMIN
 ***********************************************************************************/
 
+.page-Modif-h1{
+	margin-top: 50px;
+	text-align: center;
+	font-size: 2.2em;
+	color: #0bbff2;
+}
+
 #form-connection-admin{
 	margin: 100px auto;
 	padding: 50px 50px;
@@ -1982,16 +1989,9 @@ a.search-form-close {
 /***********************************************************************************
 *	- ADMIN -- Modif Accueil
 ***********************************************************************************/
-.contenu-page-ModifAccueil{
+.contenu-page-Modif{
 	display: flex;
 	padding: 25px 25px;
-}
-
-.page-ModifAccueil-h1{
-	margin-top: 50px;
-	text-align: center;
-	font-size: 2em;
-	color: #0bbff2;
 }
 
 .label-section h2{
@@ -2023,6 +2023,74 @@ a.search-form-close {
 }
 
 
+/***********************************************************************************
+*	- ADMIN -- Modif Équipe
+***********************************************************************************/
+.modif-departements{
+	flex: 1;
+	margin-left: 100px;
+}
+
+.liste-departements{
+	border: 1px #0bbff2 solid;
+}
+
+.liste-departements ul{
+	padding: 0;
+	margin: 0;
+}
+
+.liste-departements li{
+	padding: 25px;
+	list-style-position: inside;
+	list-style: none;
+	cursor: pointer;
+	border: 1px #0bbff2 solid;
+	color: #000000;
+}
+
+.liste-departements li:hover{
+	background-color: #8cc73f;
+}
+
+.liste-departements li a:hover{
+	text-decoration: none;
+}
+
+.btn-group{
+	display: flex;
+	justify-content: right;
+}
+
+.btn-modifier-liste{
+	display: block;
+	margin: 15px auto;
+	width: 95%;
+}
+
+.single-btn{
+	flex: 1;
+	margin: 5px 15px;
+	width: 50%;
+}
+
+.employes{
+	flex: 2;
+	margin: 0 20px;
+	padding: 20px 50px;
+	border: 1px #0bbff2 solid;
+	height: 50vh;
+	overflow: auto;
+}
+
+.employe{
+	margin: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.nom-employe{
+	font-weight: bold;
+}
 
 
 
