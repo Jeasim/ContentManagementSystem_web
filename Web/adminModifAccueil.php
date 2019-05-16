@@ -23,9 +23,7 @@
 
 		<form action="adminModifAccueil.php" method="post">
 
-			<textarea name="editeurEntete" id="editeurEntete">
-
-			</textarea>
+			<textarea name="editeurEntete" id="editeurEntete" class="editeurAccueil"><?= $action->contenuEntete ?></textarea>
 
 			<script>
 				CKEDITOR.replace( 'editeurEntete' );
@@ -46,9 +44,7 @@
 
 		<form action="adminModifAccueil.php" method="post">
 
-			<textarea name="editeurPresentation" id="editeurPresentation">
-
-			</textarea>
+			<textarea name="editeurPresentation" id="editeurPresentation" class="editeurAccueil"><?= $action->contenuPresentation ?></textarea>
 
 			<script>
 				CKEDITOR.replace( 'editeurPresentation' );

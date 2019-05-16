@@ -5,6 +5,8 @@
 
 		public static function lireTexteAccueil($section) {
 
+
+
 			$connection = Connection::getConnection();
 			$statement = $connection->prepare("SELECT * FROM accueil WHERE section=?");
 			$statement->bindParam(1, $section);

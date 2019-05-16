@@ -4,6 +4,9 @@
 	class AdminModifAccueil_Action extends CommonAction {
 
 
+		public $contenuEntete;
+		public $contenuPresentation;
+
 
 		public function __construct() {
 			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Modification 'Accueil'", null, null, "Administrateur");
@@ -11,14 +14,20 @@
 
 		protected function executeAction() {
 
-			$this->contenuSectionModif = TexteModifiableDAO::lireTexteAccueil($this->sectionModif);
+			$this->contenuEntete = utf8_decode(TexteModifiableDAO::lireTexteAccueil("entete"));
+			$this->contenuPresentation = utf8_decode(TexteModifiableDAO::lireTexteAccueil("presentation"));
+
+			if(!empty($_POST["editeurPresentation"])){
+				$contenu = utf8_encode ($_POST["editeurPresentation"] );
+				TexteModifiableDAO::updateTexteAccueil($contenu, "presentation");
+			}
 
 			if(!empty($_POST["editeurEntete"])){
-				$this->contenuSectionModif = TexteModifiableDAO::lireTexteAccueil($this->sectionModif);
+				$contenu = utf8_encode ($_POST["editeurEntete"] );
+				TexteModifiableDAO::updateTexteAccueil($contenu, "entete");
 			}
 
-			if(!empty($_POST["editeur"])){
-				TexteModifiableDAO::updateTexteAccueil($_POST["editeur"], $this->sectionModif);
-			}
+
+
 		}
 	}
