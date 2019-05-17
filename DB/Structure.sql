@@ -585,5 +585,20 @@ INSERT INTO infos_sup (
     'Directeur adjoint des études au Cégep du Vieux Montréal'
 );
 
+INSERT INTO infos_sup (
+    id_employe,
+    info
+) VALUES (
+    (
+        SELECT
+            id
+        FROM
+            employes
+        WHERE
+            nom = 'Martin Prévost'
+    ),
+    'Test'
+);
+
 
 COMMIT;

@@ -7,72 +7,61 @@ window.onload = () =>{
 	btnModifier = document.getElementById("btn-modifier");
 	btnSupprimer = document.getElementById("btn-supprimer");
 	nodeListeEmployes = document.querySelector(".liste-employes");
-
 }
 
-const rendreOngletActif = () =>{
 
-}
 
 const modifierEmploye = (employeID) =>{
-	enleverListeEmploye();
+	viderNode(nodeListeEmployes);
 	infosEmploye = fetchInfoEmploye(employeID);
 }
 
-const enleverListeEmploye = () =>{
-	while (nodeListeEmployes.hasChildNodes()) {
-		nodeListeEmployes.removeChild(nodeListeEmployes.firstChild);
+const viderNode = (node) =>{
+	while (node.hasChildNodes()) {
+		node.removeChild(node.firstChild);
 	}
 }
 
 const creerFormulaire = (infosEmploye) =>{
 	ajouterTitre();
-
-	let champs = [];
-
-	champs.push(creerNouveauChamp("NOM", infosEmploye));
-	champs.push(creerNouveauChamp("POSTE", infosEmploye));
-	champs.push(creerNouveauChamp("DEPARTEMENT", infosEmploye));
-	champs.push(creerNouveauChamp("COURRIEL", infosEmploye));
-	champs.push(creerNouveauChamp("NUMÉRO DE TÉLÉPHONE", infosEmploye));
-	champs.push(creerNouveauChamp("INFORMATIONS SUPPLÉMENTAIRES", infosEmploye));
-	ajouterNodesFormulaire(champs);
-
+	ajouterChamps(infosEmploye);
 }
 
-const creerNouveauChamp = (attribut, infosEmploye) =>{
+const creerNouveauChamp = (nomChamp, attribut, infosEmploye) =>{
 	let nodeChamp = document.createElement("div");
 	nodeChamp.setAttribute("class", "form-single-line");
-	nodeChamp.appendChild(creerLabel(attribut));
+	nodeChamp.appendChild(creerLabel(nomChamp));
 	nodeChamp.appendChild(creerInput(attribut, infosEmploye));
 
 	return nodeChamp;
 }
 
-const creerLabel = (attribut) =>{
+const creerLabel = (nomChamp) =>{
 	let nodeLabel = document.createElement("div");
 	nodeLabel.setAttribute("class", "form-info-label")
-	nodeLabel.innerHTML = attribut;
+	nodeLabel.innerHTML = nomChamp;
 
 	return nodeLabel;
 }
 
-const creerInput = (attribut, infosEmploye) =>{
+const creerInput = (info) =>{
 	let nodeInput = document.createElement("input");
 	nodeInput.setAttribute("class", "form-info-input")
 
-	info = determinerSiInfoVide(infosEmploye[attribut]);
+	if(infoVide(info)){
+		info = "";
+	}
 
 	nodeInput.value = info;
 
 	return nodeInput;
 }
 
-const determinerSiInfoVide = (info) =>{
-	return (info === null | info === undefined  ? "" : info);
+const infoVide = (info) =>{
+	return (info === null | info === undefined);
 }
 
-fetchInfoEmploye = (employeIDParam) =>{
+const fetchInfoEmploye = (employeIDParam) =>{
 
 	$.ajax({
         url : "fetchInfosEmploye.php",
@@ -88,13 +77,71 @@ fetchInfoEmploye = (employeIDParam) =>{
 }
 
 const ajouterTitre = () =>{
-	let nodeTitreForm = document.createElement("h1");
+	let nodeTitreForm = document.createElement("h2");
 	nodeTitreForm.innerHTML = "Modification d'un employé";
 	nodeListeEmployes.appendChild(nodeTitreForm);
+}
+
+const ajouterChamps = (infosEmploye) =>{
+
+	let champs = [];
+	champs.push(creerNouveauChamp("Nom:", infosEmploye["NOM"]));
+	champs.push(creerNouveauChamp("Poste:", infosEmploye["POSTE"]));
+	champs.push(creerNouveauChamp("Département:", infosEmploye["DEPARTEMENT"]));
+	champs.push(creerNouveauChamp("Addresse courriel:", infosEmploye["COURRIEL"]));
+	champs.push(creerNouveauChamp("Numéro de téléphone:", infosEmploye["NUMTEL"]));
+
+	if(!infoVide(infosEmploye["INFOS"])){
+		champs.push(creerNouveauChamp("Information supplémentaire:", infosEmploye["INFOS"].INFO));
+	}
+	else{
+		champs.push(creerNouveauChamp("Information supplémentaire:", ""));
+	}
+
+	ajouterNodesFormulaire(champs);
 }
 
 const ajouterNodesFormulaire = (champs) =>{
 	champs.forEach(champ => {
 		nodeListeEmployes.appendChild(champ);
+	});
+}
+
+const mettreSelectionActive = (node) => {
+	node.style.backgroundColor = "#ec284a";
+}
+
+const creerBouton = (texte, parent, couleur) =>{
+	let nodeBouton = document.createElement("div");
+	nodeBouton.setAttribute("class", "single-btn btn "+ couleur);
+	nodeBouton.innerHTML = texte;
+	nodeBouton.style.backgroundColor = couleur;
+	parent.appendChild(nodeBouton);
+
+	return nodeBouton;
+}
+
+const confimerSupression = (node, employeID) =>{
+	// location.reload();
+	let nodeBtnGroup = node.parentNode;
+	viderNode(nodeBtnGroup);
+	let btnConfirmer = creerBouton("Confirmer", nodeBtnGroup, "btn-red");
+	let btnAnnuler = creerBouton("Annuler", nodeBtnGroup, "btn-green");
+
+	btnConfirmer.addEventListener("click", ()=>supprimerEmploye(employeID));
+	btnAnnuler.addEventListener("click", ()=>location.reload());
+}
+
+const supprimerEmploye = (employeIDParam) =>{
+	$.ajax({
+        url : "supprimerEmploye.php",
+        type: "POST",
+        data: {
+			employeID : employeIDParam
+		}
+    })
+    .done(response => {
+		message = JSON.parse(response);
+		location.reload();
 	});
 }

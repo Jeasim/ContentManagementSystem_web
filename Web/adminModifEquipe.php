@@ -12,6 +12,7 @@
 <script src="js/adminModifEquipe.js"></script>
 
 
+
 <h1 class="page-Modif-h1">Modifier la page "Équipe"</h1>
 
 <div class="contenu-page-Modif">
@@ -23,62 +24,67 @@
 					<?php
 						foreach ($action->departements as $departement) {
 							?>
-								<a href="?departementSelectionne=<?= $departement ?>"><li><?= $departement ?></li></a>
+								<a href="?departementSelectionne=<?= $departement ?>"><li onclick="mettreSelectionActive(this)"><?= $departement ?></li></a>
 							<?php
 						}
 					?>
 				</ul>
 			</div>
+
 			<div class="btn-blue btn btn-modifier-liste">Modifier la liste</div>
 
 		</div>
 
-
 		<div class="employes">
 			<div class="liste-employes">
 				<?php
-					foreach ($action->employes as $employe) {
+					if(isset($_GET["departementSelectionne"])){
 						?>
-							<div class="employe">
-								<p class="nom-employe"><?= $employe["NOM"] ?></p>
-								<div class="poste-employe"><?= $employe["POSTE"] ?></div>
-								<?php
-									if(isset($employe["INFOS"])){
-										foreach ($employe["INFOS"] as $infoSup) {
-											?>
-												<p class="info-supplementaire-employe"><?= $infoSup ?></p>
-											<?php
-										}
-									}
-								?>
-								<ul class="info-contact-employe">
-									<?php
-										if(isset($employe["COURRIEL"])){
-									?>
-											<li><?= $employe["COURRIEL"] ?></li>
-									<?php
-										}
-										if(isset($employe["NUMTEL"])){
-									?>
-											<li><?= $employe["NUMTEL"] ?></li>
-									<?php
-										}
-									?>
-
-								</ul>
-								<div class="btn-group">
-									<div class="btn-blue btn single-btn" id="btn-modifier" onclick="modifierEmploye('<?= $employe['ID'] ?>')">Modifier</div>
-									<div class="btn-blue btn single-btn" id="btn-supprimer" onclick="supprimerEmploye('<?= $employe['ID'] ?>')">Supprimer</div>
-								</div>
-
-							</div>
+							<h2><?= $_GET["departementSelectionne"] ?></h2>
 						<?php
+
+						foreach ($action->employes as $employe) {
+							?>
+								<div class="employe">
+									<p class="nom-employe"><?= $employe["NOM"] ?></p>
+									<div class="poste-employe"><?= $employe["POSTE"] ?></div>
+									<?php
+										if(isset($employe["INFOS"])){
+											foreach ($employe["INFOS"] as $infoSup) {
+												?>
+													<p class="info-supplementaire-employe"><?= $infoSup ?></p>
+												<?php
+											}
+										}
+									?>
+									<ul class="info-contact-employe">
+										<?php
+											if(isset($employe["COURRIEL"])){
+										?>
+												<li><?= $employe["COURRIEL"] ?></li>
+										<?php
+											}
+											if(isset($employe["NUMTEL"])){
+										?>
+												<li><?= $employe["NUMTEL"] ?></li>
+										<?php
+											}
+										?>
+
+									</ul>
+									<div class="btn-group">
+										<div class="btn-blue btn single-btn" id="btn-modifier" onclick="modifierEmploye('<?= $employe['ID'] ?>')">Modifier</div>
+										<div class="btn-blue btn single-btn" id="btn-supprimer" onclick="confimerSupression(this, '<?= $employe['ID'] ?>')">Supprimer</div>
+									</div>
+
+								</div>
+							<?php
+						}
 					}
 				?>
 
 			</div>
 		</div>
-
 </div>
 
 

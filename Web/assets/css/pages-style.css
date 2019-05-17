@@ -1966,7 +1966,7 @@ a.search-form-close {
 }
 
 .form-single-line{
-	padding: 10px 50px;
+	padding: 10px 20px;
 	display: flex;
 	flex-direction: column;
 }
@@ -1976,6 +1976,7 @@ a.search-form-close {
 }
 
 .form-info-label{
+	margin-left: 15px;
 	color: #0bbff2;
 	font-size: 1.2em;
 	margin-bottom: 5px;
@@ -1992,12 +1993,17 @@ a.search-form-close {
 	text-align: center;
 }
 
+.ckEditor{
+	margin: 0 auto;
+	padding: 20px;
+}
+
 /***********************************************************************************
 *	- ADMIN -- Modif Accueil
 ***********************************************************************************/
 .contenu-page-Modif{
 	display: flex;
-	padding: 25px 25px;
+	/* padding: 25px 10px; */
 }
 
 .label-section h2{
@@ -2039,6 +2045,8 @@ a.search-form-close {
 
 .liste-departements{
 	border: 1px #0bbff2 solid;
+	max-height: 55vh;
+	overflow: auto;
 }
 
 .liste-departements ul{
@@ -2085,17 +2093,42 @@ a.search-form-close {
 	margin: 0 20px;
 	padding: 20px 50px;
 	border: 1px #0bbff2 solid;
-	height: 50vh;
+	height: 55vh;
 	overflow: auto;
 }
 
 .employe{
+	position: relative;
 	margin: 20px 0;
 	border-bottom: 1px solid #ccc;
 }
 
 .nom-employe{
 	font-weight: bold;
+}
+
+.liste-employes h2{
+	margin: 15px 0;
+	text-decoration: underline;
+	text-align: center;
+	padding-left: 50px;
+}
+
+.btn-confirmer-suppression{
+	position: absolute;
+	background-color: #ec284a;
+	color: #636363;
+	width: 25%;
+	height: 10%;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	padding: 15px 15px;
 }
 
 

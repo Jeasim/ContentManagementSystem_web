@@ -1,4 +1,4 @@
-<?php
+	<?php
 	require_once("action/AdminModifAccueil_Action.php");
 	require_once("action/DAO/TexteModifiableDAO.php");
 
@@ -20,17 +20,19 @@
 			<img src="images/admin/modif-accueil-entete.png" alt="Section entête" class="img-section-modif">
 		</div>
 
-		<form action="adminModifAccueil.php" method="post">
+		<div class="ckEditor">
+			<form action="adminModifAccueil.php" method="post">
 
-			<textarea name="editeurEntete" id="editeurEntete" class="editeurAccueil"><?= $action->contenuEntete ?></textarea>
+				<textarea name="editeurEntete" id="editeurEntete" class="editeurAccueil"><?= $action->contenuEntete ?></textarea>
 
-			<script>
-				CKEDITOR.replace( 'editeurEntete' );
-			</script>
+				<script>
+					CKEDITOR.replace( 'editeurEntete' );
+				</script>
 
-			<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
+				<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
 
-		</form>
+			</form>
+		</div>
 	</div>
 
 
@@ -40,18 +42,19 @@
 			<h2>Présentation</h2>
 			<img src="images/admin/modif-accueil-presentation.png" alt="Section présentation" class="img-section-modif">
 		</div>
+		<div class="ckEditor">
+			<form action="adminModifAccueil.php" method="post">
 
-		<form action="adminModifAccueil.php" method="post">
+				<textarea name="editeurPresentation" id="editeurPresentation" class="editeurAccueil"><?= $action->contenuPresentation ?></textarea>
 
-			<textarea name="editeurPresentation" id="editeurPresentation" class="editeurAccueil"><?= $action->contenuPresentation ?></textarea>
+				<script>
+					CKEDITOR.replace( 'editeurPresentation' );
+				</script>
 
-			<script>
-				CKEDITOR.replace( 'editeurPresentation' );
-			</script>
+				<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
 
-			<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
-
-		</form>
+			</form>
+		</div>
 	</div>
 
 </div>

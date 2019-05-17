@@ -55,6 +55,7 @@
 			$statement->execute();
 
 			while ($row = $statement->fetch()) {
+				$row["INFOS"] = self::fetchInfosSupEmploye($row["ID"]);
 				$employe = $row;
 			}
 
@@ -119,12 +120,21 @@
 
 			$info = null;
 
-			if($row = $statement->fetch()) {
+			while($row = $statement->fetch()) {
 				$info = $row;
 			}
 
 			return $info;
 		}
+
+		public static function supprimerEmploye($employeID){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("DELETE FROM employes WHERE id = ?");
+			$statement->bindParam(1, $employeID);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
 
 
 

@@ -16,7 +16,6 @@
 
 			if(!empty($_GET["departementSelectionne"])){
 				$this->departementSelectionne = $_GET["departementSelectionne"];
-
 				self::fetchEmployeDuDepartment();
 			}
 		}
