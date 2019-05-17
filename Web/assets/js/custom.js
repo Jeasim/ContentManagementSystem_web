@@ -1198,6 +1198,7 @@
 				horizontalScrolling: false,
 				verticalScrolling: true,
 				responsive: true
+
 			});
 
 		}
@@ -1289,7 +1290,7 @@
 		animate_charts();
 		counter();
 		show_hide_go_top();
-		sticky();
+		// sticky();
 
 	});
 
