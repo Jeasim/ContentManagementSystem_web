@@ -9,6 +9,7 @@
 ?>
 
 <script src="ckeditor/ckeditor.js"></script>
+<script src="js/adminModifEquipe.js"></script>
 
 
 <h1 class="page-Modif-h1">Modifier la page "Équipe"</h1>
@@ -66,8 +67,8 @@
 
 								</ul>
 								<div class="btn-group">
-									<div class="btn-blue btn single-btn">Modifier</div>
-									<div class="btn-blue btn single-btn">Supprimer</div>
+									<div class="btn-blue btn single-btn" id="btn-modifier" onclick="modifierEmploye('<?= $employe['ID'] ?>')">Modifier</div>
+									<div class="btn-blue btn single-btn" id="btn-supprimer" onclick="supprimerEmploye('<?= $employe['ID'] ?>')">Supprimer</div>
 								</div>
 
 							</div>

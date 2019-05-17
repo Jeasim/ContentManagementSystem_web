@@ -47,6 +47,36 @@
 			return $departements;
 		}
 
+		public static function fetchEmploye($id){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT * FROM employes WHERE id = ?");
+			$statement->bindParam(1, $id);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			while ($row = $statement->fetch()) {
+				$employe = $row;
+			}
+
+			$employe["DEPARTEMENT"] = self::fetchDepartement($id);
+
+			return $employe;
+		}
+
+		public static function fetchDepartement($id){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT nom FROM departements WHERE id = ( SELECT id_departement FROM employes WHERE id = ? )");
+			$statement->bindParam(1, $id);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			while ($row = $statement->fetch()) {
+				$departement = $row["NOM"];
+			}
+
+			return $departement;
+		}
+
 		public static function fetchEmployeParDepartement($departement){
 			$departementID =  self::fetchDepartementID($departement);
 
@@ -95,5 +125,7 @@
 
 			return $info;
 		}
+
+
 
 	}

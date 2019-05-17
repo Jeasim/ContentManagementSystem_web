@@ -71,24 +71,7 @@
 	}
 
 
-	// STICKY //
-	function sticky() {
 
-		var sticky_point = 242;
-
-		if ($(window).scrollTop() > sticky_point) {
-			$("#header").addClass("header-sticky");
-		} else {
-			$("#header").removeClass("header-sticky");
-		}
-
-		if ($(window).scrollTop() > 200){
-			$(".elements-menu").addClass("elements-menu-sticky");
-		} else {
-			$(".elements-menu").removeClass("elements-menu-sticky");
-		}
-
-	}
 
 
 	// SEARCH //
@@ -1290,7 +1273,6 @@
 		animate_charts();
 		counter();
 		show_hide_go_top();
-		// sticky();
 
 	});
 

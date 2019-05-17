@@ -1975,6 +1975,12 @@ a.search-form-close {
 	width: 100%;
 }
 
+.form-info-label{
+	color: #0bbff2;
+	font-size: 1.2em;
+	margin-bottom: 5px;
+}
+
 #form-connection-button{
 	margin-top: 20px;
 	text-align: center;
