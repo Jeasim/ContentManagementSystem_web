@@ -109,6 +109,22 @@
 			return $departementID;
 		}
 
+		public static function ajouterEmploye($nom, $poste, $departement, $numTel, $courriel, $infoSup1, $infoSup2){
+			$departementID = self::fetchDepartementID($departement);
+
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare(" INSERT INTO employes( nom, id_departement, poste, courriel, numtel, info_sup1, info_sup2 ) VALUES( ?, ?, ?, ?, ?,  ?, ? )");
+			$statement->bindParam(1, $nom);
+			$statement->bindParam(2, $departementID);
+			$statement->bindParam(3, $poste);
+			$statement->bindParam(4, $courriel);
+			$statement->bindParam(5, $numTel);
+			$statement->bindParam(6, $infoSup1);
+			$statement->bindParam(7, $infoSup2);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
 		public static function modifierEmploye($id, $nom, $poste, $departement, $numTel, $courriel, $infoSup1, $infoSup2){
 			$departementID = self::fetchDepartementID($departement);
 

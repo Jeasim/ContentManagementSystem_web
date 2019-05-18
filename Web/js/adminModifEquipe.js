@@ -12,11 +12,11 @@ const formulaireModifier = (employeID) =>{
 	(document.getElementById("Modifier")).addEventListener("click", ()=>modifierEmploye(employeID));
 }
 
-const formulaireAjouter = () =>{
+const formulaireAjouter = (departement) =>{
 	viderNode(nodeListeEmployes);
 	creerFormulaire("Ajouter");
-	remplirChampsInfosEmploye(employeID);
-	(document.getElementById("Ajouter")).addEventListener("click", ()=>ajouterEmploye(employeID));
+	document.querySelector("input[name = 'DEPARTEMENT']").value = departement;
+	(document.getElementById("Ajouter")).addEventListener("click", ()=>ajouterEmploye());
 }
 
 const viderNode = (node) =>{
@@ -103,6 +103,8 @@ const ajouterEmploye = () =>{
     })
     .done(response => {
 		message = JSON.parse(response);
+		console.log(message);
+
 		location.reload();
 	});
 }

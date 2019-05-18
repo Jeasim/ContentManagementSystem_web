@@ -27,7 +27,7 @@ CREATE TABLE departements (
 CREATE TABLE employes (
     id               NUMBER
         GENERATED ALWAYS AS IDENTITY,
-    id_departement   NUMBER NOT NULL,
+    id_departement   NUMBER          NOT NULL,
     nom              VARCHAR2(40)    NOT NULL,
     poste            VARCHAR2(100)   NOT NULL,
     courriel         VARCHAR2(50)    DEFAULT '',
