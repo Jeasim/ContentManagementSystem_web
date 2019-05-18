@@ -55,7 +55,6 @@
 			$statement->execute();
 
 			while ($row = $statement->fetch()) {
-				$row["INFOS"] = self::fetchInfosSupEmploye($row["ID"]);
 				$employe = $row;
 			}
 
@@ -90,7 +89,6 @@
 			$employes = [];
 
 			while ($row = $statement->fetch()) {
-				$row["INFOS"] = self::fetchInfosSupEmploye($row["ID"]);
 				$employes[] = $row;
 			}
 
@@ -111,46 +109,22 @@
 			return $departementID;
 		}
 
-		public static function fetchInfosSupEmploye($employeID){
-			$connection = Connection::getConnection();
-			$statement = $connection->prepare("SELECT info FROM infos_sup WHERE id_employe = ?");
-			$statement->bindParam(1, $employeID);
-			$statement->setFetchMode(PDO::FETCH_ASSOC);
-			$statement->execute();
-
-			$info = null;
-
-			while($row = $statement->fetch()) {
-				$info = $row;
-			}
-
-			return $info;
-		}
-
-		public static function modifierEmploye($id, $nom, $poste, $departement, $infoSup, $numTel, $courriel){
+		public static function modifierEmploye($id, $nom, $poste, $departement, $numTel, $courriel, $infoSup1, $infoSup2){
 			$departementID = self::fetchDepartementID($departement);
 
 			$connection = Connection::getConnection();
-			$statement = $connection->prepare("UPDATE employes SET nom = ?, poste = ?, numtel = ?, courriel = ?, id_departement = ? WHERE id = ? ");
+			$statement = $connection->prepare("UPDATE employes SET nom = ?, poste = ?, numtel = ?, courriel = ?, id_departement = ?, info_sup1 = ?, info_sup2 = ? WHERE id = ? ");
 			$statement->bindParam(1, $nom);
 			$statement->bindParam(2, $poste);
 			$statement->bindParam(3, $numTel);
 			$statement->bindParam(4, $courriel);
 			$statement->bindParam(5, $departementID);
-			$statement->bindParam(6, $id);
+			$statement->bindParam(6, $infoSup1);
+			$statement->bindParam(7, $infoSup2);
+			$statement->bindParam(8, $id);
 			$statement->setFetchMode(PDO::FETCH_ASSOC);
 			$statement->execute();
 
-			self::modifierInfoSup($id, $infoSup);
-		}
-
-		public static function modifierInfoSup($id, $infoSup){
-			$connection = Connection::getConnection();
-			$statement = $connection->prepare("UPDATE infos_sup SET info = :infoSup  WHERE id_employe = :id ");
-			$statement->bindParam(":infoSup", $infoSup);
-			$statement->bindParam(":id", $id);
-			$statement->setFetchMode(PDO::FETCH_ASSOC);
-			$statement->execute();
 		}
 
 		public static function supprimerEmploye($employeID){

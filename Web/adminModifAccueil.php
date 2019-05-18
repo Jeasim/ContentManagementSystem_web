@@ -29,7 +29,7 @@
 					CKEDITOR.replace( 'editeurEntete' );
 				</script>
 
-				<button type="submit" class="btn-blue btn soummettre-modif-accueil"> Soummettre </button>
+				<button type="submit" class="btn-blue btn soummettre-modif-accueil">Soummettre</button>
 
 			</form>
 		</div>

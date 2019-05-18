@@ -5,8 +5,6 @@ DROP TABLE employes CASCADE CONSTRAINTS;
 
 DROP TABLE departements;
 
-DROP TABLE infos_sup;
-
 
 -- CREATE TABLES --
 
@@ -25,25 +23,19 @@ CREATE TABLE departements (
     CONSTRAINT pk_departments PRIMARY KEY ( id )
 );
 
-CREATE TABLE infos_sup (
-    id           NUMBER
-        GENERATED ALWAYS AS IDENTITY,
-    id_employe   NUMBER,
-    info         VARCHAR2(100) NOT NULL,
-    CONSTRAINT pk_infos_sup PRIMARY KEY ( id )
-);
 
 CREATE TABLE employes (
     id               NUMBER
         GENERATED ALWAYS AS IDENTITY,
     id_departement   NUMBER NOT NULL,
-    nom              VARCHAR2(40) NOT NULL,
-    poste            VARCHAR2(100) NOT NULL,
-    courriel         VARCHAR2(50),
-    numtel           VARCHAR2(25),
-    CONSTRAINT pk_employes PRIMARY KEY ( id ),
-    FOREIGN KEY ( id_departement )
-        REFERENCES departements ( id )
+    nom              VARCHAR2(40)    NOT NULL,
+    poste            VARCHAR2(100)   NOT NULL,
+    courriel         VARCHAR2(50)    DEFAULT '',
+    numtel           VARCHAR2(25)    DEFAULT '',
+    info_sup1        VARCHAR2(100)   DEFAULT '',
+    info_sup2        VARCHAR2(100)   DEFAULT '',
+    CONSTRAINT pk_employes           PRIMARY KEY ( id ),
+    FOREIGN KEY ( id_departement )   REFERENCES departements ( id )
 );
 
 
@@ -127,7 +119,8 @@ INSERT INTO employes (
     nom,
     id_departement,
     poste,
-    courriel
+    courriel,
+    info_sup1
 ) VALUES (
     'Paul Turcotte',
     (
@@ -139,23 +132,10 @@ INSERT INTO employes (
             nom = 'Personnel scientifique'
     ),
     'Enseignant au Cégep du Vieux Montréal',
-    'pturcotte@cvm.qc.ca'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Paul Turcotte'
-    ),
+    'pturcotte@cvm.qc.ca',
     'Département de Philosophie'
 );
+
 
 INSERT INTO employes (
     nom,
@@ -253,7 +233,8 @@ INSERT INTO employes (
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1
 ) VALUES (
     'Amanda Shawayahamish',
     (
@@ -264,28 +245,16 @@ INSERT INTO employes (
         WHERE
             nom = 'Étudiants (Assistants de recherche et stagiaires)'
     ),
-    'Étudiante à l''université de Concordia'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Amanda Shawayahamish'
-    ),
+    'Étudiante à l''université de Concordia',
     'Études des peuples autochtones et biologie'
 );
+
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1
 ) VALUES (
     'Celeste Awashish',
     (
@@ -296,28 +265,16 @@ INSERT INTO employes (
         WHERE
             nom = 'Étudiants (Assistants de recherche et stagiaires)'
     ),
-    'Étudiante au Collège Dawson'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Celeste Awashish'
-    ),
+    'Étudiante au Collège Dawson',
     'Sciences sociales'
 );
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1,
+    info_sup2
 ) VALUES (
     'Catherine Fichten',
     (
@@ -328,43 +285,17 @@ INSERT INTO employes (
         WHERE
             nom = 'Chercheuses et chercheurs affiliés'
     ),
-    'Enseignante au Collège Dawson'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Catherine Fichten'
-    ),
-    'Professeure associée à l''Université McGill Département de psychologie'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Catherine Fichten'
-    ),
+    'Enseignante au Collège Dawson',
+    'Professeure associée à l''Université McGill Département de psychologie',
     'Codirectrice du Réseau de Recherche Adaptech (www.adaptech.org)'
 );
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1,
+    info_sup2
 ) VALUES (
     'Alice Havel',
     (
@@ -375,43 +306,18 @@ INSERT INTO employes (
         WHERE
             nom = 'Chercheuses et chercheurs affiliés'
     ),
-    'Retraitée du Collège Dawson'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Alice Havel'
-    ),
-    'Coordonnatrice du AccessAbility Centre'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Alice Havel'
-    ),
+    'Retraitée du Collège Dawson',
+    'Coordonnatrice du AccessAbility Centre',
     'Chercheuse associée au Réseau de Recherche Adaptech'
 );
+
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1,
+    info_sup2
 ) VALUES (
     'Tara Flanagan
 ',
@@ -423,43 +329,17 @@ INSERT INTO employes (
         WHERE
             nom = 'Chercheuses et chercheurs affiliés'
     ),
-    'Professeure Associée à l''Université McGill'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Tara Flanagan'
-    ),
-    'Département d''Educational and Counselling Psychology'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Alice Havel'
-    ),
+    'Professeure Associée à l''Université McGill',
+    'Département d''Educational and Counselling Psychology',
     'Chercheuse associée au Réseau de Recherche Adaptech'
 );
+
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1
 ) VALUES (
     'Josianne Robert',
     (
@@ -470,28 +350,16 @@ INSERT INTO employes (
         WHERE
             nom = 'Chercheuses et chercheurs affiliés'
     ),
-    'Professeure de formation pratique adjointe à l''Université de Montréal'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Josianne Robert'
-    ),
+    'Professeure de formation pratique adjointe à l''Université de Montréal',
     'Département de psychopédagogie et d''andragogie'
 );
+
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1
 ) VALUES (
     'Richard Filion',
     (
@@ -502,28 +370,16 @@ INSERT INTO employes (
         WHERE
             nom = 'Conseil d''administration'
     ),
-    'Président'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Richard Filion'
-    ),
+    'Président',
     'Directeur général du Collège Dawson'
 );
+
 
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1
 ) VALUES (
     'Mylène Boisclair',
     (
@@ -534,21 +390,7 @@ INSERT INTO employes (
         WHERE
             nom = 'Conseil d''administration'
     ),
-    'Vice-présidente'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Mylène Boisclair'
-    ),
+    'Vice-présidente',
     'Directrice générale au Cégep du Vieux Montréal'
 );
 
@@ -556,7 +398,8 @@ INSERT INTO infos_sup (
 INSERT INTO employes (
     nom,
     id_departement,
-    poste
+    poste,
+    info_sup1
 ) VALUES (
     'Martin Prévost',
     (
@@ -567,23 +410,10 @@ INSERT INTO employes (
         WHERE
             nom = 'Conseil d''administration'
     ),
-    'Secrétaire et trésorier'
-);
-
-INSERT INTO infos_sup (
-    id_employe,
-    info
-) VALUES (
-    (
-        SELECT
-            id
-        FROM
-            employes
-        WHERE
-            nom = 'Martin Prévost'
-    ),
+    'Secrétaire et trésorier',
     'Directeur adjoint des études au Cégep du Vieux Montréal'
 );
+
 
 
 COMMIT;

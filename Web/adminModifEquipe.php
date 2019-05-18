@@ -48,15 +48,8 @@
 								<div class="employe">
 									<p class="nom-employe"><?= $employe["NOM"] ?></p>
 									<div class="poste-employe"><?= utf8_decode($employe["POSTE"]) ?></div>
-									<?php
-										if(isset($employe["INFOS"])){
-											foreach ($employe["INFOS"] as $infoSup) {
-												?>
-													<p class="info-supplementaire-employe"><?= $infoSup ?></p>
-												<?php
-											}
-										}
-									?>
+									<div class="info-supplementaire-employe"><?= $employe["INFO_SUP1"] ?></div>
+									<div class="info-supplementaire-employe"><?= $employe["INFO_SUP2"] ?></div>
 									<ul class="info-contact-employe">
 										<?php
 											if(isset($employe["COURRIEL"])){

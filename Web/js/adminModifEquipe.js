@@ -1,19 +1,22 @@
-let btnModifier 		= null;
-let btnSupprimer 		= null;
 let nodeListeEmployes 	= null;
 
-
 window.onload = () =>{
-	console.log("ici");
-
-	btnModifier = document.getElementById("btn-modifier");
-	btnSupprimer = document.getElementById("btn-supprimer");
 	nodeListeEmployes = document.querySelector(".liste-employes");
 }
 
+
 const formulaireModifier = (employeID) =>{
 	viderNode(nodeListeEmployes);
-	infosEmploye = fetchInfoEmploye(employeID);
+	creerFormulaire("Modifier");
+	remplirChampsInfosEmploye(employeID);
+	(document.getElementById("Modifier")).addEventListener("click", ()=>modifierEmploye(employeID));
+}
+
+const formulaireAjouter = () =>{
+	viderNode(nodeListeEmployes);
+	creerFormulaire("Ajouter");
+	remplirChampsInfosEmploye(employeID);
+	(document.getElementById("Ajouter")).addEventListener("click", ()=>ajouterEmploye(employeID));
 }
 
 const viderNode = (node) =>{
@@ -22,105 +25,10 @@ const viderNode = (node) =>{
 	}
 }
 
-const creerFormulaire = (infosEmploye) =>{
-	ajouterTitre();
-	ajouterChamps(infosEmploye);
-	ajouterBoutons(infosEmploye["ID"]);
-}
-
-const creerNouveauChamp = (nomChamp, attribut, nomInput) =>{
-	let nodeChamp = document.createElement("div");
-	nodeChamp.setAttribute("class", "form-single-line");
-	nodeChamp.appendChild(creerLabel(nomChamp));
-	nodeChamp.appendChild(creerInput(attribut, nomInput));
-
-	return nodeChamp;
-}
-
-const creerLabel = (nomChamp, nomInput) =>{
-	let nodeLabel = document.createElement("div");
-	nodeLabel.setAttribute("class", "form-info-label");
-	nodeLabel.innerHTML = nomChamp;
-
-	return nodeLabel;
-}
-
-const creerInput = (info, nomInput) =>{
-	let nodeInput = document.createElement("input");
-	nodeInput.setAttribute("class", "form-info-input");
-	nodeInput.setAttribute("name", nomInput);
-
-	console.log(nodeInput);
-
-
-	if(infoVide(info)){
-		info = "";
-	}
-
-	nodeInput.value = info;
-
-	return nodeInput;
-}
-
-const infoVide = (info) =>{
-	return (info === null | info === undefined);
-}
-
-
-
-const ajouterTitre = () =>{
-	let nodeTitreForm = document.createElement("h2");
-	nodeTitreForm.innerHTML = "Modification d'un employé";
-	nodeListeEmployes.appendChild(nodeTitreForm);
-}
-
-const ajouterChamps = (infosEmploye) =>{
-	let champs = [];
-	champs.push(creerNouveauChamp("Nom:", infosEmploye["NOM"], "NOM"));
-	champs.push(creerNouveauChamp("Poste:", infosEmploye["POSTE"], "POSTE"));
-	champs.push(creerNouveauChamp("Département:", infosEmploye["DEPARTEMENT"], "DEPARTEMENT"));
-	champs.push(creerNouveauChamp("Addresse courriel:", infosEmploye["COURRIEL"], "COURRIEL"));
-	champs.push(creerNouveauChamp("Numéro de téléphone:", infosEmploye["NUMTEL"], "NUMTEL"));
-
-	if(!infoVide(infosEmploye["INFOS"])){
-		champs.push(creerNouveauChamp("Information supplémentaire:", infosEmploye["INFOS"].INFO, "INFOS"));
-	}
-	else{
-		champs.push(creerNouveauChamp("Information supplémentaire:", ""));
-	}
-
-	ajouterNodesFormulaire(champs);
-}
-
-const ajouterBoutons = (employeID) =>{
-	let btnGroupModifier = document.createElement("div");
-	btnGroupModifier.setAttribute("class", "btn-group");
-	let btnConfimer = creerBouton("Modifier", btnGroupModifier, "btn-red");
-	let btnAnnuler = creerBouton("Annuler", btnGroupModifier, "btn-green");
-	btnAnnuler.addEventListener("click", ()=>location.reload());
-	btnConfimer.addEventListener("click", ()=>modifierEmploye(employeID))
-
-	nodeListeEmployes.appendChild(btnGroupModifier);
-}
-
 const ajouterNodesFormulaire = (champs) =>{
 	champs.forEach(champ => {
 		nodeListeEmployes.appendChild(champ);
 	});
-}
-
-const mettreSelectionActive = (node) => {
-	node.style.backgroundColor = "#ec284a";
-}
-
-const creerBouton = (texte, parent, couleur) =>{
-	let nodeBouton = document.createElement("div");
-	nodeBouton.setAttribute("class", "single-btn btn "+ couleur);
-	nodeBouton.innerHTML = texte;
-	nodeBouton.style.backgroundColor = couleur;
-	parent.appendChild(nodeBouton);
-
-	return nodeBouton;
 }
 
 const confimerSupression = (node, employeID) =>{
@@ -133,7 +41,9 @@ const confimerSupression = (node, employeID) =>{
 	btnAnnuler.addEventListener("click", ()=>location.reload());
 }
 
-const fetchInfoEmploye = (employeIDParam) =>{
+
+//  ------ Fonctions d'appels AJAX
+const remplirChampsInfosEmploye = (employeIDParam) =>{
 
 	$.ajax({
         url : "fetchInfosEmploye.php",
@@ -143,12 +53,19 @@ const fetchInfoEmploye = (employeIDParam) =>{
 		}
     })
     .done(response => {
-		infos = JSON.parse(response);
-		creerFormulaire(infos);
+		infosEmploye = JSON.parse(response);
+		document.querySelector("input[name = 'NOM']").value = infosEmploye["NOM"];
+		document.querySelector("input[name = 'POSTE']").value = infosEmploye["POSTE"];
+		document.querySelector("input[name = 'COURRIEL']").value = infosEmploye["COURRIEL"];
+		document.querySelector("input[name = 'NUMTEL']").value = infosEmploye["NUMTEL"];
+		document.querySelector("input[name = 'INFO_SUP1']").value = infosEmploye["INFO_SUP1"];
+		document.querySelector("input[name = 'INFO_SUP2']").value = infosEmploye["INFO_SUP2"];
+		document.querySelector("input[name = 'DEPARTEMENT']").value = infosEmploye["DEPARTEMENT"];
 	});
 }
 
 const modifierEmploye = (employeIDParam) =>{
+
 	$.ajax({
         url : "modifierEmploye.php",
         type: "POST",
@@ -158,8 +75,29 @@ const modifierEmploye = (employeIDParam) =>{
 			poste : 		document.querySelector("input[name = 'POSTE']").value,
 			courriel :		document.querySelector("input[name = 'COURRIEL']").value,
 			numTel : 		document.querySelector("input[name = 'NUMTEL']").value,
-			infoSup : 		"oui",
-			// infoSup : 		document.querySelector("input[name = 'INFOS']").value,
+			infoSup1 : 		document.querySelector("input[name = 'INFO_SUP1']").value,
+			infoSup2 : 		document.querySelector("input[name = 'INFO_SUP2']").value,
+			departement : 	document.querySelector("input[name = 'DEPARTEMENT']").value
+		}
+    })
+    .done(response => {
+		message = JSON.parse(response);
+		location.reload();
+	});
+}
+
+const ajouterEmploye = () =>{
+
+	$.ajax({
+        url : "ajouterEmploye.php",
+        type: "POST",
+        data: {
+			nom : 			document.querySelector("input[name = 'NOM']").value,
+			poste : 		document.querySelector("input[name = 'POSTE']").value,
+			courriel :		document.querySelector("input[name = 'COURRIEL']").value,
+			numTel : 		document.querySelector("input[name = 'NUMTEL']").value,
+			infoSup1 : 		document.querySelector("input[name = 'INFO_SUP1']").value,
+			infoSup2 : 		document.querySelector("input[name = 'INFO_SUP2']").value,
 			departement : 	document.querySelector("input[name = 'DEPARTEMENT']").value
 		}
     })
@@ -181,4 +119,76 @@ const supprimerEmploye = (employeIDParam) =>{
 		message = JSON.parse(response);
 		location.reload();
 	});
+}
+
+
+
+// ------ Fonctions de création de formulaire
+const creerFormulaire = (fonctionnalite) =>{
+	ajouterTitre(fonctionnalite);
+	ajouterChamps();
+	ajouterBoutons(fonctionnalite);
+}
+
+const ajouterTitre = (fonctionnalite) =>{
+	let nodeTitreForm = document.createElement("h2");
+	nodeTitreForm.innerHTML = fonctionnalite + " un employé";
+	nodeListeEmployes.appendChild(nodeTitreForm);
+}
+
+const ajouterChamps = () =>{
+	let champs = [];
+	champs.push(creerNouveauChamp("Nom:", "NOM"));
+	champs.push(creerNouveauChamp("Poste:", "POSTE"));
+	champs.push(creerNouveauChamp("Département:", "DEPARTEMENT"));
+	champs.push(creerNouveauChamp("Addresse courriel:", "COURRIEL"));
+	champs.push(creerNouveauChamp("Numéro de téléphone:", "NUMTEL"));
+	champs.push(creerNouveauChamp("Information supplémentaire #1:", "INFO_SUP1"));
+	champs.push(creerNouveauChamp("Information supplémentaire #2:", "INFO_SUP2"));
+	ajouterNodesFormulaire(champs);
+}
+
+const ajouterBoutons = (fonctionnalite) =>{
+	let btnGroup = document.createElement("div");
+	btnGroup.setAttribute("class", "btn-group");
+	btnConfimer = creerBouton(fonctionnalite, btnGroup, "btn-red");
+	let btnAnnuler = creerBouton("Annuler", btnGroup, "btn-green");
+	btnAnnuler.addEventListener("click", ()=>location.reload());
+	nodeListeEmployes.appendChild(btnGroup);
+}
+
+const creerNouveauChamp = (nomChamp, nomInput) =>{
+	let nodeChamp = document.createElement("div");
+	nodeChamp.setAttribute("class", "form-single-line");
+	nodeChamp.appendChild(creerLabel(nomChamp));
+	nodeChamp.appendChild(creerInput(nomInput));
+
+	return nodeChamp;
+}
+
+const creerLabel = (nomChamp) =>{
+	let nodeLabel = document.createElement("div");
+	nodeLabel.setAttribute("class", "form-info-label");
+	nodeLabel.innerHTML = nomChamp;
+
+	return nodeLabel;
+}
+
+const creerInput = (nomInput) =>{
+	let nodeInput = document.createElement("input");
+	nodeInput.setAttribute("class", "form-info-input");
+	nodeInput.setAttribute("name", nomInput);
+
+	return nodeInput;
+}
+
+const creerBouton = (fonctionnalite, parent, couleur) =>{
+	let nodeBouton = document.createElement("div");
+	nodeBouton.setAttribute("class", "single-btn btn "+ couleur);
+	nodeBouton.setAttribute("id", fonctionnalite);
+	nodeBouton.innerHTML = fonctionnalite;
+	nodeBouton.style.backgroundColor = couleur;
+	parent.appendChild(nodeBouton);
+
+	return nodeBouton;
 }
