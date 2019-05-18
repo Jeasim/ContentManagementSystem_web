@@ -83,10 +83,6 @@
 <script src="assets/plugins/validate/jquery.validate.min.js"></script>
 <script src="assets/plugins/submit/jquery.form.min.js"></script>
 
-<!-- GOOGLE MAPS -->
-<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-<script src="assets/plugins/googlemaps/gmap3.min.js"></script>
-
 <!-- CHARTS -->
 <script src="assets/plugins/charts/jquery.easypiechart.min.js"></script>
 

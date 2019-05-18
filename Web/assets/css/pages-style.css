@@ -1830,32 +1830,32 @@ a.search-form-close {
 *	- CONTACT
 ***********************************************************************************/
 
-#contact-form {
+#nousJoindre-form {
 	margin-bottom: 50px;
 }
 
-#contact-form label {
+#nousJoindre-form label {
 	display: block;
 }
 
-#contact-form label.error {
+#nousJoindre-form label.error {
 	margin-bottom: 20px;
 	color: #ec284a;
 }
 
-#contact-form textarea {
+#nousJoindre-form textarea {
 	font-size: 12px;
 	margin-bottom: 20px;
 }
 
-#contact-form input[type="text"],
-#contact-form input[type="email"] {
+#nousJoindre-form input[type="text"],
+#nousJoindre-form input[type="email"] {
 	height: 40px;
 	font-size: 12px;
 	margin-bottom: 20px;
 }
 
-#contact-form input[type="submit"] {
+#nousJoindre-form input[type="submit"] {
 	padding: 5px 20px;
 }
 

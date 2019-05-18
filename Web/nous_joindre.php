@@ -25,20 +25,20 @@
 	<div class="row">
 		<div class="col-sm-7">
 
-			<form id="contact-form" name="contact-form" method="post" action="assets/php/send.php">
+			<form id="nousJoindre-form" name="nousJoindre-form" method="post" action="nous_joindre.php">
 				<fieldset>
 
 					<div id="alert-area"></div>
 
-					<input class="col-xs-12" id="name" type="text" name="name" placeholder="Nom">
+					<input class="col-xs-12" id="name" type="text" name="name" placeholder="Nom" required>
 
-					<input class="col-xs-12" id="email" type="email" name="email" placeholder="Courriel">
+					<input class="col-xs-12" id="email" type="email" name="email" placeholder="Courriel" required>
 
-					<input class="col-xs-12" id="subject" type="text" name="subject" placeholder="Sujet">
+					<input class="col-xs-12" id="subject" type="text" name="subject" placeholder="Sujet" required>
 
-					<textarea class="col-xs-12" id="message" name="message" rows="8" cols="25" placeholder="Message"></textarea>
+					<textarea class="col-xs-12" id="message" name="message" rows="8" cols="25" placeholder="Message" required></textarea>
 
-					<input class="btn btn-blue" id="submit" type="submit" name="submit" value="Soumettre">
+					<input class="btn btn-blue" id="submit" type="submit" name="submit" value="Soumettre" required>
 
 				</fieldset>
 			</form>
@@ -75,10 +75,10 @@
 				<div class="social-media">
 
 					<a class="facebook" href="https://www.facebook.com/Crispesh" target="_blank">
-						<img src="images/logo_facebook_fonce.png" alt="Facebook - Crispesh" class="icon-">
+						<img src="images/logos/facebook.svg" alt="Facebook - Crispesh" class="icon-">
 					</a>
 					<a class="linkedin" href="https://www.linkedin.com/in/catherine-loiselle-22ab77b4?authType=NAME_SEARCH&authToken=WM3S&locale=fr_FR&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A408988546%2CauthType%3ANAME_SEARCH%2Cidx%3A1-4-4%2CtarId%3A1479849945623%2Ctas%3Acatheri" target="_blank">
-						<img src="images/logo_linkedin_fonce.png" alt="Facebook - Crispesh" class="icon-">
+						<img src="images\logos\linkedin.svg" alt="Facebook - Crispesh" class="icon-">
 					</a>
 
 
@@ -90,26 +90,6 @@
 	</div><!-- row -->
 </div><!-- container -->
 <hr>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-
-			<div class="headline">
-
-				<h3>Map</h3>
-
-				<br>
-
-				<address class="text-center">
-						255, rue Ontario Est <br>
-						Montréal (QC) H2X 1X6
-				</address>
-
-			</div><!-- headline -->
-
-		</div><!-- col -->
-	</div><!-- row -->
-</div><!-- container -->
 
 <?php
 	require_once("partial/footer.php");

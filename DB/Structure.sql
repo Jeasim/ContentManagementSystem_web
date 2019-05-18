@@ -80,7 +80,7 @@ INSERT INTO employes (
     courriel,
     numtel
 ) VALUES (
-    'Roc Ducharme',
+    'Roch Ducharme',
     (
         SELECT
             id
