@@ -16,7 +16,7 @@
 				$contenu = $row;
 			}
 
-			$contenu = utf8_decode($contenu['CONTENU']);
+			$contenu = $contenu['CONTENU'];
 
 			return $contenu;
 		}
@@ -41,7 +41,7 @@
 			$departements = [];
 
 			while ($row = $statement->fetch()) {
-				$departements[] = utf8_decode($row['NOM']);
+				$departements[] = $row['NOM'];
 			}
 
 			return $departements;

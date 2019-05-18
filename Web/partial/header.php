@@ -128,7 +128,7 @@
                         <a id="mobile-menu-button" href="#"><i class="mt-icons-menu"></i></a>
 
                         <ul class="menu clearfix" id="menu">
-                            <li class="active">
+                            <li>
                                 <a href="index" id="Accueil">Accueil</a>
                             </li>
                             <li >

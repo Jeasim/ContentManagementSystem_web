@@ -11,8 +11,6 @@
 <script src="ckeditor/ckeditor.js"></script>
 <script src="js/adminModifEquipe.js"></script>
 
-
-
 <h1 class="page-Modif-h1">Modifier la page Équipe</h1>
 
 <div class="contenu-page-Modif">
@@ -44,7 +42,7 @@
 							?>
 								<div class="employe">
 									<p class="nom-employe"><?= $employe["NOM"] ?></p>
-									<div class="poste-employe"><?= utf8_decode($employe["POSTE"]) ?></div>
+									<div class="poste-employe"><?= $employe["POSTE"] ?></div>
 									<div class="info-supplementaire-employe"><?= $employe["INFO_SUP1"] ?></div>
 									<div class="info-supplementaire-employe"><?= $employe["INFO_SUP2"] ?></div>
 									<ul class="info-contact-employe">
