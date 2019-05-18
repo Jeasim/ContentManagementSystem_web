@@ -4,7 +4,7 @@
 	class Error_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Erreur", "Accueil", "index.php", "Erreur");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Erreur", null, "Accueil", "index.php", "Erreur");
 		}
 
 		protected function executeAction() {

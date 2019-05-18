@@ -4,7 +4,7 @@
 	class Qui_sommes_nous_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Qui sommes-nous?", "Accueil", "index.php", "À propos");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Qui sommes-nous?", "propos", "Accueil", "index.php", "À propos");
 		}
 
 		protected function executeAction() {

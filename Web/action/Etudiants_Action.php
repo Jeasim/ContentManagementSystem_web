@@ -7,7 +7,7 @@
 		public $employes;
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Étudiants", "Équipe", "equipe.php", "Équipe");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Étudiants", "equipe", "Équipe", "equipe.php", "Équipe");
 
 		}
 

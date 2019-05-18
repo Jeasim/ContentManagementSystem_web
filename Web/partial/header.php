@@ -52,6 +52,8 @@
     <link rel="stylesheet" href="assets/css/pages-style.css">
 
 
+
+
 </head>
 
 <body>
@@ -127,10 +129,10 @@
 
                         <ul class="menu clearfix" id="menu">
                             <li class="active">
-                                <a href="index">Accueil</a>
+                                <a href="index" id="Accueil">Accueil</a>
                             </li>
                             <li >
-                                <a href="qui_sommes_nous">À propos</a>
+                                <a href="qui_sommes_nous" id="propos">À propos</a>
                                 <ul>
                                     <li>
                                         <a href="inclusion_sociale">L'inclusion sociale</a>
@@ -153,7 +155,7 @@
                                 </ul>
                             </li>
                             <li >
-                                <a href="equipe">Équipe</a>
+                                <a href="equipe" id="equipe">Équipe</a>
                                 <ul>
                                     <li>
                                         <a href="personnel_administratif">Personnel administratif</a>
@@ -176,10 +178,10 @@
                                 </ul>
                             </li>
                             <li >
-                                <a href="nos_projets">Nos Projets</a>
+                                <a href="nos_projets" id="projets">Nos Projets</a>
                             </li>
                            <li >
-                                <a href="services">Nos Services</a>
+                                <a href="services" id="services">Nos Services</a>
                                <ul>
 
 									<li class="active">
@@ -197,33 +199,33 @@
                               </ul>
                           </li>
                             <li >
-                                <a href="documentation">Documentation</a>
+                                <a href="documentation" id="documentation">Documentation</a>
                             </li>
 
                             <li >
-                                <a href="nous_joindre">Nous Joindre</a>
+                                <a href="nous_joindre" id="joindre">Nous Joindre</a>
                             </li>
 
                         <?php
                         if($_SESSION["visibility"] === CommonAction::$VISIBILITY_ADMINISTRATOR){
                             ?>
-                                <li>
-                                    <a href="accueilAdmin">Administrateur</a>
-                                    <ul>
-                                        <li>
-                                            <a href="adminModifAccueil">Modifier la page "Accueil"</a>
-                                        </li>
-                                        <li>
-                                            <a href="adminModifEquipe">Modifier la page "Équipe"</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Modifier la page "Projets"</a>
-                                        </li>
-                                        <li>
-                                            <a href="?logout=true">Se déconnecter</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            <li>
+                                <a href="accueilAdmin" id="admin">Administrateur</a>
+                                <ul>
+                                    <li>
+                                        <a href="adminModifAccueil">Modifier la page "Accueil"</a>
+                                    </li>
+                                    <li>
+                                        <a href="adminModifEquipe">Modifier la page "Équipe"</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Modifier la page "Projets"</a>
+                                    </li>
+                                    <li>
+                                        <a href="?logout=true">Se déconnecter</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <?php
                         }
                     ?>

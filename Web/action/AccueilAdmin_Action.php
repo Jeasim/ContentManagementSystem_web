@@ -7,7 +7,7 @@
 		public $texteModif;
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Accueil administrateur", null, null, "Administrateur");
+			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Accueil administrateur", "admin",null, null, "Administrateur");
 		}
 
 		protected function executeAction() {

@@ -4,7 +4,7 @@
 	class Documentation_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Documentation", "Accueil", "index.php", "Documentation");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Documentation", "documentation","Accueil", "index.php", "Documentation");
 		}
 
 		protected function executeAction() {

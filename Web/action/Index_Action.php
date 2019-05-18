@@ -7,7 +7,7 @@
 		public $contenuEnTete;
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Accueil");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Accueil", "accueil");
 		}
 
 		protected function executeAction() {

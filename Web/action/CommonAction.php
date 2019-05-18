@@ -7,11 +7,12 @@
 
 		private $pageVisibility;
 		private $pageTitle;
+		private $onglet;
 		private $parentPageTitle;
 		private $parentPageURL;
 		private $section;
 
-		public function __construct($pageVisibility, $pageTitle, $parentPageTitle = null, $parentPageURL = null, $section = null) {
+		public function __construct($pageVisibility, $pageTitle, $onglet = null, $parentPageTitle = null, $parentPageURL = null, $section = null) {
 			$this->pageVisibility = $pageVisibility;
 			$this->pageTitle = $pageTitle;
 			$this->parentPageTitle = $parentPageTitle;

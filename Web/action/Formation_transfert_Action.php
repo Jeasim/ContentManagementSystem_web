@@ -4,7 +4,7 @@
 	class Formation_transfert_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Formation et transfert", "Nos Services", "services.php", "Nos services");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Formation et transfert", "services","Nos Services", "services.php", "Nos services");
 		}
 
 		protected function executeAction() {

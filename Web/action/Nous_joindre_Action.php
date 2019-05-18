@@ -4,7 +4,7 @@
 	class Nous_joindre_Action extends CommonAction {
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Nous joindre", "Accueil", "index.php", "Nous joindre");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Nous joindre", "joindre", "Accueil", "index.php", "Nous joindre");
 		}
 
 		protected function executeAction() {

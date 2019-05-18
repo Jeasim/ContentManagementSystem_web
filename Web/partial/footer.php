@@ -2,6 +2,10 @@
 </div><!-- CONTENT -->
 </div><!-- PAGE-WRAPPER -->
 
+<script src="js/general.js" type="text/javascript">
+    rendreOngletActuelActif("<?php $action->onglet ?>");
+</script>
+
 <!-- FOOTER -->
 <footer class="site_footer">
     <div id="footer-bottom">

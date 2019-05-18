@@ -8,7 +8,7 @@
 		public $employes;
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Modification 'Équipe'", null, null, "Administrateur");
+			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Modification 'Équipe'", "admin", null, null, "Administrateur");
 		}
 
 		protected function executeAction() {
