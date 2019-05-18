@@ -2055,12 +2055,17 @@ a.search-form-close {
 }
 
 .liste-departements li{
+	text-align: center;
 	padding: 25px;
 	list-style-position: inside;
 	list-style: none;
 	cursor: pointer;
-	border: 1px #0bbff2 solid;
+	/* border-bottom: 1px #0bbff2 solid; */
 	color: #000000;
+}
+
+.liste-departements li:last-child(){
+	border-bottom: none;
 }
 
 .liste-departements li:hover{
@@ -2074,6 +2079,7 @@ a.search-form-close {
 .btn-group{
 	display: flex;
 	justify-content: right;
+	padding: 10px 10px;
 }
 
 .btn-modifier-liste{
@@ -2089,17 +2095,18 @@ a.search-form-close {
 }
 
 .employes{
-	flex: 2;
-	margin: 0 20px;
-	padding: 20px 50px;
-	border: 1px #0bbff2 solid;
+	flex: 3;
+	margin: 0 100px;
+	padding: 20px 0;
+	border: 2px #0bbff2 solid;
 	height: 55vh;
 	overflow: auto;
 }
 
 .employe{
 	position: relative;
-	margin: 20px 0;
+	margin: 20px auto;
+	width: 80%;
 	border-bottom: 1px solid #ccc;
 }
 

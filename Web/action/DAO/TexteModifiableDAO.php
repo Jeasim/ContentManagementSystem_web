@@ -127,6 +127,32 @@
 			return $info;
 		}
 
+		public static function modifierEmploye($id, $nom, $poste, $departement, $infoSup, $numTel, $courriel){
+			$departementID = self::fetchDepartementID($departement);
+
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("UPDATE employes SET nom = ?, poste = ?, numtel = ?, courriel = ?, id_departement = ? WHERE id = ? ");
+			$statement->bindParam(1, $nom);
+			$statement->bindParam(2, $poste);
+			$statement->bindParam(3, $numTel);
+			$statement->bindParam(4, $courriel);
+			$statement->bindParam(5, $departementID);
+			$statement->bindParam(6, $id);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			self::modifierInfoSup($id, $infoSup);
+		}
+
+		public static function modifierInfoSup($id, $infoSup){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("UPDATE infos_sup SET info = :infoSup  WHERE id_employe = :id ");
+			$statement->bindParam(":infoSup", $infoSup);
+			$statement->bindParam(":id", $id);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
 		public static function supprimerEmploye($employeID){
 			$connection = Connection::getConnection();
 			$statement = $connection->prepare("DELETE FROM employes WHERE id = ?");

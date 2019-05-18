@@ -13,7 +13,7 @@
 
 
 
-<h1 class="page-Modif-h1">Modifier la page "Équipe"</h1>
+<h1 class="page-Modif-h1">Modifier la page Équipe</h1>
 
 <div class="contenu-page-Modif">
 
@@ -47,7 +47,7 @@
 							?>
 								<div class="employe">
 									<p class="nom-employe"><?= $employe["NOM"] ?></p>
-									<div class="poste-employe"><?= $employe["POSTE"] ?></div>
+									<div class="poste-employe"><?= utf8_decode($employe["POSTE"]) ?></div>
 									<?php
 										if(isset($employe["INFOS"])){
 											foreach ($employe["INFOS"] as $infoSup) {
@@ -73,7 +73,7 @@
 
 									</ul>
 									<div class="btn-group">
-										<div class="btn-blue btn single-btn" id="btn-modifier" onclick="modifierEmploye('<?= $employe['ID'] ?>')">Modifier</div>
+										<div class="btn-blue btn single-btn" id="btn-modifier" onclick="formulaireModifier('<?= $employe['ID'] ?>')">Modifier</div>
 										<div class="btn-blue btn single-btn" id="btn-supprimer" onclick="confimerSupression(this, '<?= $employe['ID'] ?>')">Supprimer</div>
 									</div>
 
