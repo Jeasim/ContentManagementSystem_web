@@ -16,13 +16,7 @@
 
 			if(!empty($_GET["departementSelectionne"])){
 				$this->departementSelectionne = $_GET["departementSelectionne"];
-				self::fetchEmployeDuDepartment();
+				$this->employes = TexteModifiableDAO::fetchEmployeParDepartement($this->departementSelectionne);
 			}
 		}
-
-
-		public function fetchEmployeDuDepartment() {
-			$this->employes = TexteModifiableDAO::fetchEmployeParDepartement($this->departementSelectionne);
-		}
-
 	}

@@ -153,7 +153,27 @@
                                 </ul>
                             </li>
                             <li >
-                                <a href="personnel_administratif.php">Équipe</a>
+                                <a href="equipe.php">Équipe</a>
+                                <ul>
+                                    <li>
+                                        <a href="personnel_administratif.php">Personnel administratif</a>
+                                    </li>
+                                    <li>
+                                        <a href="personnel_scientifique.php">Personnel scientifique</a>
+                                    </li>
+                                    <li>
+                                        <a href="etudiants.php">Étudiants (Assistants de recherche et stagiaires)</a>
+                                    </li>
+                                    <li>
+                                        <a href="chercheurses_chercheurs.php">Chercheuses et chercheurs affiliés</a>
+                                    </li>
+                                    <li>
+                                        <a href="conseil.php">Conseil d’administration</a>
+                                    </li>
+                                    <li>
+                                        <a href="emplois.php">Emplois au CRISPESH</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li >
                                 <a href="nos_projets.php">Nos Projets</a>

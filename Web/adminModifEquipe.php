@@ -60,7 +60,6 @@
 										<?php
 											}
 										?>
-
 									</ul>
 									<div class="btn-group">
 										<div class="btn-blue btn single-btn" id="btn-modifier" onclick="formulaireModifier('<?= $employe['ID'] ?>')">Modifier</div>
