@@ -25,7 +25,7 @@
 	<div class="row">
 		<div class="col-sm-7">
 
-			<form id="nousJoindre-form" name="nousJoindre-form" method="post" action="nous_joindre.php">
+			<form id="nousJoindre-form" name="nousJoindre-form" method="post" action="nous_joindre">
 				<fieldset>
 
 					<div id="alert-area"></div>

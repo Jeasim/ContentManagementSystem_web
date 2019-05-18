@@ -4,7 +4,7 @@
 	class AdminModifEquipe_Action extends CommonAction {
 
 		public $departements;
-		public $departementSelectionne;
+		public $departementSelectionne = "Personnel administratif";
 		public $employes;
 
 		public function __construct() {
@@ -13,6 +13,7 @@
 
 		protected function executeAction() {
 			$this->departements = TexteModifiableDAO::fetchDepartements();
+			$this->employes = TexteModifiableDAO::fetchEmployeParDepartement($this->departementSelectionne);
 
 			if(!empty($_GET["departementSelectionne"])){
 				$this->departementSelectionne = $_GET["departementSelectionne"];

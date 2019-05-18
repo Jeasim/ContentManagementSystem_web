@@ -32,13 +32,10 @@
 
 		<div class="employes">
 			<div class="liste-employes">
-				<?php
-					if(isset($_GET["departementSelectionne"])){
-						?>
-							<h2><?= $_GET["departementSelectionne"] ?></h2>
-						<?php
 
-						foreach ($action->employes as $employe) {
+				<h2><?= $action->departementSelectionne ?></h2>
+						<?php
+							foreach ($action->employes as $employe) {
 							?>
 								<div class="employe">
 									<p class="nom-employe"><?= $employe["NOM"] ?></p>
@@ -67,7 +64,7 @@
 								</div>
 							<?php
 						}
-					}
+
 				?>
 			</div>
 			<div class="btn-blue btn single-btn" id="btn-ajouter" onclick="formulaireAjouter('<?= $action->departementSelectionne ?>')">Ajouter un employé</div>

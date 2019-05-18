@@ -2050,7 +2050,7 @@ a.search-form-close {
 }
 
 .liste-departements{
-	border: 2px #0bbff2 solid;
+	border: 1px #0bbff2 solid;
 	max-height: 70vh;
 	overflow: auto;
 }
@@ -2067,6 +2067,8 @@ a.search-form-close {
 	list-style: none;
 	cursor: pointer;
 	color: #000000;
+	border: 1px #0bbff2 solid;
+	text-decoration: none;
 }
 
 .liste-departements li:last-child(){
@@ -2077,8 +2079,8 @@ a.search-form-close {
 	background-color: #8cc73f;
 }
 
-.liste-departements li a:hover{
-	text-decoration: none;
+.liste-departements li:active{
+	background-color: #d12142;
 }
 
 .btn-group{
