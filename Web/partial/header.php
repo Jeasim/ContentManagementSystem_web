@@ -113,7 +113,7 @@
                 <div class="col-sm-3">
 
                     <!-- LOGO -->
-                    <a id="logo" href="index.php">
+                    <a id="logo" href="index">
                         <img src="assets/images/logo.png" alt="">
                     </a>
 
@@ -127,94 +127,94 @@
 
                         <ul class="menu clearfix" id="menu">
                             <li class="active">
-                                <a href="index.php">Accueil</a>
+                                <a href="index">Accueil</a>
                             </li>
                             <li >
-                                <a href="qui_sommes_nous.php">À propos</a>
+                                <a href="qui_sommes_nous">À propos</a>
                                 <ul>
                                     <li>
-                                        <a href="inclusion_sociale.php">L'inclusion sociale</a>
+                                        <a href="inclusion_sociale">L'inclusion sociale</a>
                                     </li>
                                     <li>
-                                        <a href="innovation_sociale.php">L'innovation sociale</a>
+                                        <a href="innovation_sociale">L'innovation sociale</a>
                                     </li>
                                     <li>
-                                        <a href="conception_handicap.php">Notre conception du handicap</a>
+                                        <a href="conception_handicap">Notre conception du handicap</a>
                                     </li>
                                     <li>
-                                        <a href="situation_handicap.php">Qui sont les personnes en situation d'handicap</a>
+                                        <a href="situation_handicap">Qui sont les personnes en situation d'handicap</a>
                                     </li>
                                     <li>
-                                        <a href="champs_expertise.php">Champs d'expertise</a>
+                                        <a href="champs_expertise">Champs d'expertise</a>
                                     </li>
                                     <li>
-                                        <a href="partenaires.php">Nos partenaires</a>
+                                        <a href="partenaires">Nos partenaires</a>
                                     </li>
                                 </ul>
                             </li>
                             <li >
-                                <a href="equipe.php">Équipe</a>
+                                <a href="equipe">Équipe</a>
                                 <ul>
                                     <li>
-                                        <a href="personnel_administratif.php">Personnel administratif</a>
+                                        <a href="personnel_administratif">Personnel administratif</a>
                                     </li>
                                     <li>
-                                        <a href="personnel_scientifique.php">Personnel scientifique</a>
+                                        <a href="personnel_scientifique">Personnel scientifique</a>
                                     </li>
                                     <li>
-                                        <a href="etudiants.php">Étudiants (Assistants de recherche et stagiaires)</a>
+                                        <a href="etudiants">Étudiants (Assistants de recherche et stagiaires)</a>
                                     </li>
                                     <li>
-                                        <a href="chercheurses_chercheurs.php">Chercheuses et chercheurs affiliés</a>
+                                        <a href="chercheurses_chercheurs">Chercheuses et chercheurs affiliés</a>
                                     </li>
                                     <li>
-                                        <a href="conseil.php">Conseil d’administration</a>
+                                        <a href="conseil">Conseil d’administration</a>
                                     </li>
                                     <li>
-                                        <a href="emplois.php">Emplois au CRISPESH</a>
+                                        <a href="emplois">Emplois au CRISPESH</a>
                                     </li>
                                 </ul>
                             </li>
                             <li >
-                                <a href="nos_projets.php">Nos Projets</a>
+                                <a href="nos_projets">Nos Projets</a>
                             </li>
                            <li >
-                                <a href="services.php">Nos Services</a>
+                                <a href="services">Nos Services</a>
                                <ul>
 
 									<li class="active">
-										<a href="recherche_appliquee.php">La recherche appliquée</a>
+										<a href="recherche_appliquee">La recherche appliquée</a>
 									</li>
 									<li>
-										<a href="services_accompagnement.php">Services d'accompagnement en innovation sociale</a>
+										<a href="services_accompagnement">Services d'accompagnement en innovation sociale</a>
 									</li>
 									<li>
-										<a href="laboratoire_technologies_adaptatives.php">Laboratoire en technologies adaptatives</a>
+										<a href="laboratoire_technologies_adaptatives">Laboratoire en technologies adaptatives</a>
 									</li>
 									<li>
-										<a href="formation_transfert.php">La formation et transfert</a>
+										<a href="formation_transfert">La formation et transfert</a>
 									</li>
                               </ul>
                           </li>
                             <li >
-                                <a href="documentation.php">Documentation</a>
+                                <a href="documentation">Documentation</a>
                             </li>
 
                             <li >
-                                <a href="nous_joindre.php">Nous Joindre</a>
+                                <a href="nous_joindre">Nous Joindre</a>
                             </li>
 
                         <?php
                         if($_SESSION["visibility"] === CommonAction::$VISIBILITY_ADMINISTRATOR){
                             ?>
                                 <li>
-                                    <a href="accueilAdmin.php">Administrateur</a>
+                                    <a href="accueilAdmin">Administrateur</a>
                                     <ul>
                                         <li>
-                                            <a href="adminModifAccueil.php">Modifier la page "Accueil"</a>
+                                            <a href="adminModifAccueil">Modifier la page "Accueil"</a>
                                         </li>
                                         <li>
-                                            <a href="adminModifEquipe.php">Modifier la page "Équipe"</a>
+                                            <a href="adminModifEquipe">Modifier la page "Équipe"</a>
                                         </li>
                                         <li>
                                             <a href="">Modifier la page "Projets"</a>

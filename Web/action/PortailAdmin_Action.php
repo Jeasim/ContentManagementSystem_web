@@ -18,7 +18,7 @@
 				if(UserDAO::authenticate($_POST["admin-username"], $_POST["admin-password"])){
 
 					$_SESSION["visibility"] = CommonAction::$VISIBILITY_ADMINISTRATOR;
-					header("location:accueilAdmin.php");
+					header("location:accueilAdmin");
 					exit;
 				}
 				else{

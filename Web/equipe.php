@@ -11,12 +11,12 @@
 	<div class="col-sm-5">
 		<div class="widget widget-categories">
 			<ul>
-				<li><a href="personnel_administratif.php">Personnel administratif</a></li>
-				<li><a href="personnel_scientifique.php">Personnel scientifique</a></li>
-				<li><a href="etudiants.php">Étudiants (Assistants de recherche et stagiaires)</a></li>
-				<li><a href="chercheurses_chercheurs.php">Chercheuses et chercheurs affiliés</a></li>
-				<li><a href="conseil.php">Le conseil d’administration</a></li>
-				<li><a href="emplois.php">Emplois au CRISPESH</a></li>
+				<li><a href="personnel_administratif">Personnel administratif</a></li>
+				<li><a href="personnel_scientifique">Personnel scientifique</a></li>
+				<li><a href="etudiants">Étudiants (Assistants de recherche et stagiaires)</a></li>
+				<li><a href="chercheurses_chercheurs">Chercheuses et chercheurs affiliés</a></li>
+				<li><a href="conseil">Le conseil d’administration</a></li>
+				<li><a href="emplois">Emplois au CRISPESH</a></li>
 			</ul>
 		</div><!-- widget-categories -->
 	</div><!-- col -->

@@ -10,7 +10,7 @@
 				</div><!-- col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb">
-						<li><a href="index.php">Accueil</a></li>
+						<li><a href="index">Accueil</a></li>
 
 						<?php
 							if($action->getParentPageTitle() === "Accueil"){

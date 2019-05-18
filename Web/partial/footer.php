@@ -22,7 +22,7 @@
 
                 </div><!-- col -->
                 <div class="col-sm-2">
-                        <a href="plan_du_site.php">Plan du site</a>
+                        <a href="plan_du_site">Plan du site</a>
                 </div>
                 <div class="col-sm-5">
 
