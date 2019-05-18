@@ -2040,7 +2040,7 @@ a.search-form-close {
 ***********************************************************************************/
 .modif-departements{
 	flex: 1;
-	margin-left: 100px;
+	margin-left: 50px;
 }
 
 .liste-departements{
@@ -2096,11 +2096,8 @@ a.search-form-close {
 
 .employes{
 	flex: 3;
-	margin: 0 100px;
-	padding: 20px 0;
-	border: 2px #0bbff2 solid;
+	padding: 0 50px;
 	height: 55vh;
-	overflow: auto;
 }
 
 .employe{
@@ -2112,6 +2109,14 @@ a.search-form-close {
 
 .nom-employe{
 	font-weight: bold;
+}
+
+
+.liste-employes{
+	padding: 20px 0;
+	height: 90%;
+	overflow: auto;
+	border: 2px #0bbff2 solid;
 }
 
 .liste-employes h2{
@@ -2136,6 +2141,11 @@ a.search-form-close {
 	margin-top: auto;
 	margin-bottom: auto;
 	padding: 15px 15px;
+}
+
+#btn-ajouter{
+	width: 100%;
+	margin: 15px auto;
 }
 
 

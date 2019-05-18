@@ -77,8 +77,8 @@
 				?>
 
 			</div>
+			<div class="btn-blue btn single-btn" id="btn-ajouter" onclick="formulaireAjouter('<?= $_GET['departementSelectionne'] ?>')">Ajouter un employé</div>
 		</div>
-			<div class="btn-blue btn single-btn" id="btn-Ajouter" onclick="formulaireAjouter('<?= $_GET['departementSelectionne'] ?>')">Ajouter</div>
 </div>
 
 
