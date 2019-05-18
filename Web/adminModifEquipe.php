@@ -24,15 +24,12 @@
 					<?php
 						foreach ($action->departements as $departement) {
 							?>
-								<a href="?departementSelectionne=<?= $departement ?>"><li onclick="mettreSelectionActive(this)"><?= $departement ?></li></a>
+								<a href="?departementSelectionne=<?= $departement ?>"><li><?= $departement ?></li></a>
 							<?php
 						}
 					?>
 				</ul>
 			</div>
-
-			<div class="btn-blue btn btn-modifier-liste">Modifier la liste</div>
-
 		</div>
 
 		<div class="employes">
@@ -75,13 +72,10 @@
 						}
 					}
 				?>
-
 			</div>
-			<div class="btn-blue btn single-btn" id="btn-ajouter" onclick="formulaireAjouter('<?= $_GET['departementSelectionne'] ?>')">Ajouter un employé</div>
+			<div class="btn-blue btn single-btn" id="btn-ajouter" onclick="formulaireAjouter('<?= $action->departementSelectionne ?>')">Ajouter un employé</div>
 		</div>
 </div>
-
-
 
 <?php
 	require_once("partial/footer.php");

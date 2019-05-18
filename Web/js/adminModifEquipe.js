@@ -7,16 +7,23 @@ window.onload = () =>{
 
 const formulaireModifier = (employeID) =>{
 	viderNode(nodeListeEmployes);
-	creerFormulaire("Modifier");
+	creerFormulaireEmploye("Modifier un employé", "Modifier");
 	remplirChampsInfosEmploye(employeID);
+	(document.getElementById("btn-ajouter")).style.display = "none";
 	(document.getElementById("Modifier")).addEventListener("click", ()=>modifierEmploye(employeID));
 }
 
 const formulaireAjouter = (departement) =>{
 	viderNode(nodeListeEmployes);
-	creerFormulaire("Ajouter");
+	creerFormulaireEmploye("Ajouter un employé", "Ajouter");
 	document.querySelector("input[name = 'DEPARTEMENT']").value = departement;
-	(document.getElementById("Ajouter")).addEventListener("click", ()=>ajouterEmploye());
+	document.getElementById("Ajouter").addEventListener("click", ajouterEmploye);
+	(document.getElementById("btn-ajouter")).style.display = "none";
+}
+
+const formulaireModifDept = () => {
+	viderNode(nodeListeEmployes);
+	creerFormulaireDepartements();
 }
 
 const viderNode = (node) =>{
@@ -41,6 +48,10 @@ const confimerSupression = (node, employeID) =>{
 	btnAnnuler.addEventListener("click", ()=>location.reload());
 }
 
+const champsObligatoiresRemplis = () =>{
+	return ((document.querySelector("input[name = 'NOM']").value != "") && (document.querySelector("input[name = 'POSTE']").value != "") && (document.querySelector("input[name = 'DEPARTEMENT']").value != ""));
+}
+
 
 //  ------ Fonctions d'appels AJAX
 const remplirChampsInfosEmploye = (employeIDParam) =>{
@@ -54,59 +65,73 @@ const remplirChampsInfosEmploye = (employeIDParam) =>{
     })
     .done(response => {
 		infosEmploye = JSON.parse(response);
-		document.querySelector("input[name = 'NOM']").value = infosEmploye["NOM"];
-		document.querySelector("input[name = 'POSTE']").value = infosEmploye["POSTE"];
-		document.querySelector("input[name = 'COURRIEL']").value = infosEmploye["COURRIEL"];
-		document.querySelector("input[name = 'NUMTEL']").value = infosEmploye["NUMTEL"];
-		document.querySelector("input[name = 'INFO_SUP1']").value = infosEmploye["INFO_SUP1"];
-		document.querySelector("input[name = 'INFO_SUP2']").value = infosEmploye["INFO_SUP2"];
+		document.querySelector("input[name = 'NOM']").value 		= infosEmploye["NOM"];
+		document.querySelector("input[name = 'POSTE']").value 		= infosEmploye["POSTE"];
+		document.querySelector("input[name = 'COURRIEL']").value 	= infosEmploye["COURRIEL"];
+		document.querySelector("input[name = 'NUMTEL']").value 		= infosEmploye["NUMTEL"];
+		document.querySelector("input[name = 'INFO_SUP1']").value 	= infosEmploye["INFO_SUP1"];
+		document.querySelector("input[name = 'INFO_SUP2']").value 	= infosEmploye["INFO_SUP2"];
 		document.querySelector("input[name = 'DEPARTEMENT']").value = infosEmploye["DEPARTEMENT"];
 	});
 }
 
 const modifierEmploye = (employeIDParam) =>{
 
-	$.ajax({
-        url : "modifierEmploye.php",
-        type: "POST",
-        data: {
-			employeID : 	employeIDParam,
-			nom : 			document.querySelector("input[name = 'NOM']").value,
-			poste : 		document.querySelector("input[name = 'POSTE']").value,
-			courriel :		document.querySelector("input[name = 'COURRIEL']").value,
-			numTel : 		document.querySelector("input[name = 'NUMTEL']").value,
-			infoSup1 : 		document.querySelector("input[name = 'INFO_SUP1']").value,
-			infoSup2 : 		document.querySelector("input[name = 'INFO_SUP2']").value,
-			departement : 	document.querySelector("input[name = 'DEPARTEMENT']").value
-		}
-    })
-    .done(response => {
-		message = JSON.parse(response);
-		location.reload();
-	});
+	if(champsObligatoiresRemplis()){
+		$.ajax({
+			url : "modifierEmploye.php",
+			type: "POST",
+			data: {
+				employeID : 	employeIDParam,
+				nom : 			document.querySelector("input[name = 'NOM']").value,
+				poste : 		document.querySelector("input[name = 'POSTE']").value,
+				courriel :		document.querySelector("input[name = 'COURRIEL']").value,
+				numTel : 		document.querySelector("input[name = 'NUMTEL']").value,
+				infoSup1 : 		document.querySelector("input[name = 'INFO_SUP1']").value,
+				infoSup2 : 		document.querySelector("input[name = 'INFO_SUP2']").value,
+				departement : 	document.querySelector("input[name = 'DEPARTEMENT']").value
+			}
+		})
+		.done(response => {
+			message = JSON.parse(response);
+			location.reload();
+		});
+	}
+	else{
+		alert("Les champs 'nom', 'poste' et 'département doivent être remplis'")
+	}
+
 }
 
 const ajouterEmploye = () =>{
 
-	$.ajax({
-        url : "ajouterEmploye.php",
-        type: "POST",
-        data: {
-			nom : 			document.querySelector("input[name = 'NOM']").value,
-			poste : 		document.querySelector("input[name = 'POSTE']").value,
-			courriel :		document.querySelector("input[name = 'COURRIEL']").value,
-			numTel : 		document.querySelector("input[name = 'NUMTEL']").value,
-			infoSup1 : 		document.querySelector("input[name = 'INFO_SUP1']").value,
-			infoSup2 : 		document.querySelector("input[name = 'INFO_SUP2']").value,
-			departement : 	document.querySelector("input[name = 'DEPARTEMENT']").value
-		}
-    })
-    .done(response => {
-		message = JSON.parse(response);
-		console.log(message);
+	console.log("eill");
 
-		location.reload();
-	});
+	if(champsObligatoiresRemplis()){
+		$.ajax({
+			url : "ajouterEmploye.php",
+			type: "POST",
+			data: {
+				nom : 			document.querySelector("input[name = 'NOM']").value,
+				poste : 		document.querySelector("input[name = 'POSTE']").value,
+				courriel :		document.querySelector("input[name = 'COURRIEL']").value,
+				numTel : 		document.querySelector("input[name = 'NUMTEL']").value,
+				infoSup1 : 		document.querySelector("input[name = 'INFO_SUP1']").value,
+				infoSup2 : 		document.querySelector("input[name = 'INFO_SUP2']").value,
+				departement : 	document.querySelector("input[name = 'DEPARTEMENT']").value
+			}
+		})
+		.done(response => {
+			message = JSON.parse(response);
+			console.log(message);
+
+			location.reload();
+		});
+	}
+	else{
+		alert("Les champs 'nom', 'poste' et 'département doivent être remplis'")
+	}
+
 }
 
 const supprimerEmploye = (employeIDParam) =>{
@@ -125,16 +150,16 @@ const supprimerEmploye = (employeIDParam) =>{
 
 
 
-// ------ Fonctions de création de formulaire
-const creerFormulaire = (fonctionnalite) =>{
-	ajouterTitre(fonctionnalite);
+// ------ Fonctions de création de formulaires
+const creerFormulaireEmploye = (titre, fonctionnalite) =>{
+	ajouterTitre(titre);
 	ajouterChamps();
 	ajouterBoutons(fonctionnalite);
 }
 
-const ajouterTitre = (fonctionnalite) =>{
+const ajouterTitre = (titre) =>{
 	let nodeTitreForm = document.createElement("h2");
-	nodeTitreForm.innerHTML = fonctionnalite + " un employé";
+	nodeTitreForm.innerHTML = titre;
 	nodeListeEmployes.appendChild(nodeTitreForm);
 }
 
