@@ -1,4 +1,6 @@
-let nodeListeProjets = null;
+let nodeListeProjets 	= null;
+let btnAjouterChamp		= null;
+let compteurInputInfo 	= 1;
 
 window.onload = () =>{
 	nodeListeProjets = document.querySelector(".listeProjets");
@@ -56,11 +58,12 @@ const ajouterChamps = () =>{
 	let champs = [];
 	champs.push(creerNouveauChamp("Titre du projet:", "NOM", "input"));
 	champs.push(creerNouveauChamp("Contenu:", "CONTENU", "textarea"));
-	champs.push(creerNouveauChamp("Champ:", "CHAMP", "input"));
-	champs.push(creerNouveauChamp("Information:", "INFO","textarea"));
+	champs.push(creerNouveauChamp("Champ #" + compteurInputInfo +  ":", "CHAMP" + compteurInputInfo, "input"));
+	champs.push(creerNouveauChamp("Information #" + compteurInputInfo +  ":", "INFO" + compteurInputInfo,"textarea"));
 	ajouterNodesFormulaire(champs);
-	CKEDITOR.replace( 'INFO' );
+
 	CKEDITOR.replace( 'CONTENU' );
+	CKEDITOR.replace( 'INFO' + compteurInputInfo );
 }
 
 const ajouterNodesFormulaire = (champs) =>{
@@ -70,6 +73,14 @@ const ajouterNodesFormulaire = (champs) =>{
 }
 
 const ajouterBoutons = (fonctionnalite) =>{
+
+	btnAjouterChamp = document.createElement("div");
+	btnAjouterChamp.setAttribute("class", "btn-yellow btn");
+	btnAjouterChamp.setAttribute("id", "ajouter-champ");
+	btnAjouterChamp.innerHTML = "Ajouter champ";
+	btnAjouterChamp.addEventListener("click", ajouterNouveauChampInfo);
+	nodeListeProjets.appendChild(btnAjouterChamp);
+
 	let btnGroup = document.createElement("div");
 	btnGroup.setAttribute("class", "btn-group");
 	btnConfimer = creerBouton(fonctionnalite, btnGroup, "btn-red");
@@ -101,9 +112,6 @@ const creerInput = (nomInput, typeInput) =>{
 	nodeInput.setAttribute("name", nomInput);
 	nodeInput.setAttribute("id", nomInput);
 
-	console.log(nodeInput);
-
-
 	return nodeInput;
 }
 
@@ -112,7 +120,6 @@ const creerBouton = (fonctionnalite, parent, couleur) =>{
 	nodeBouton.setAttribute("class", "single-btn btn "+ couleur);
 	nodeBouton.setAttribute("id", fonctionnalite);
 	nodeBouton.innerHTML = fonctionnalite;
-	nodeBouton.style.backgroundColor = couleur;
 	parent.appendChild(nodeBouton);
 
 	return nodeBouton;
@@ -122,4 +129,26 @@ const viderNode = (node) =>{
 	while (node.hasChildNodes()) {
 		node.removeChild(node.firstChild);
 	}
+}
+
+const ajouterNouveauChampInfo = () =>{
+
+	compteurInputInfo++;
+
+	let nodeNouvelleInfo = document.createElement("div");
+
+	let nodeChamp = document.createElement("div");
+	nodeChamp.setAttribute("class", "form-single-line");
+	nodeChamp.appendChild(creerLabel("Champ #" + compteurInputInfo + ":"));
+	nodeChamp.appendChild(creerInput("CHAMP" + compteurInputInfo, "input"));
+	nodeNouvelleInfo.appendChild(nodeChamp);
+
+	let nodeInfo = document.createElement("div");
+	nodeInfo.setAttribute("class", "form-single-line");
+	nodeInfo.appendChild(creerLabel("Information #" + compteurInputInfo + ":"));
+	nodeInfo.appendChild(creerInput("INFO" + compteurInputInfo, "textarea"));
+	nodeNouvelleInfo.appendChild(nodeInfo);
+	nodeListeProjets.insertBefore(nodeNouvelleInfo, btnAjouterChamp);
+	CKEDITOR.replace( 'INFO' + compteurInputInfo );
+
 }

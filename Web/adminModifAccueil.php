@@ -1,4 +1,4 @@
-	<?php
+<?php
 	require_once("action/AdminModifAccueil_Action.php");
 	require_once("action/DAO/TexteModifiableDAO.php");
 
