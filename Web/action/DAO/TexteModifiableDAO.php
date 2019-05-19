@@ -168,4 +168,13 @@
 			return $projets;
 		}
 
+
+		public static function supprimerProjet($projetID){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("DELETE FROM projets WHERE id = ?");
+			$statement->bindParam(1, $projetID);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
 	}

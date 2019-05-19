@@ -8,6 +8,8 @@
 	require_once("partial/header.php");
 ?>
 
+<script src="js/adminModifProjets.js"></script>
+
 <!-- CONTENT -->
 <div id="content">
 
@@ -29,9 +31,9 @@
 							<div class="col-sm-4">
 
 								<div class="portfolio-item-thumbnail">
-								photo
+								image
 								<!-- <img src="images/projets/photographe.jpg" alt=""> -->
-								</div>portfolio-item-thumbnail
+								</div>
 
 							</div><!-- col -->
 							<div class="col-sm-8">
@@ -40,9 +42,11 @@
 									<h4>
 										<a title="<?= $projet["NOM"] ?>"><?= $projet["NOM"] ?></a>
 									</h4>
-									<a class="btn btn-blue" href="">
-										Voir les détails du projet
-									</a>
+
+									<div class="btn-group">
+										<div class="btn-blue btn single-btn">Modifier</div>
+										<div class="btn-blue btn single-btn" onclick="confimerSupression(this, '<?= $projet['ID'] ?>')">Supprimer</div>
+									</div>
 
 								</div><!-- portfolio-item-details -->
 							</div><!-- col -->
@@ -52,6 +56,7 @@
 			</div><!-- row -->
 		</div><!-- container -->
 	</div>
+
 	<?php
 		}
 	?>
@@ -86,9 +91,10 @@
 									<h4>
 										<a title="<?= $projet["NOM"] ?>"><?= $projet["NOM"] ?></a>
 									</h4>
-									<a class="btn btn-blue" href="">
-										Voir les détails du projet
-									</a>
+									<div class="btn-group">
+										<div class="btn-blue btn single-btn">Modifier</div>
+										<div class="btn-blue btn single-btn" onclick="confimerSupression(this, '<?= $projet['ID'] ?>')">Supprimer</div>
+									</div>
 
 								</div><!-- portfolio-item-details -->
 							</div><!-- col -->
