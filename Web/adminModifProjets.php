@@ -8,10 +8,13 @@
 	require_once("partial/header.php");
 ?>
 
+<script src="ckeditor/ckeditor.js"></script>
 <script src="js/adminModifProjets.js"></script>
 
+<h1 class="page-Modif-h1">Modifier la page Projets</h1>
+
 <!-- CONTENT -->
-<div id="content">
+<div id="content" class="listeProjets">
 
 	<div class="headline">
 		<h3>Projets en cours</h3>
@@ -82,7 +85,7 @@
 								<div class="portfolio-item-thumbnail">
 								photo
 								<!-- <img src="images/projets/photographe.jpg" alt=""> -->
-								</div>portfolio-item-thumbnail
+								</div>
 
 							</div><!-- col -->
 							<div class="col-sm-8">
@@ -110,6 +113,7 @@
 
 </div><!-- CONTENT -->
 
+<div class="btn btn-yellow btn-fix" id="btn-ajouter-projet" onclick="formulaireAjouter()">Ajouter un projet</div>
 
 <?php
 	require_once("partial/footer.php");

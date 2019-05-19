@@ -2131,7 +2131,7 @@ a.search-form-close {
 	border: 2px #0bbff2 solid;
 }
 
-.liste-employes h2{
+.titre-formulaire{
 	margin: 15px 0;
 	text-decoration: underline;
 	text-align: center;
@@ -2159,6 +2159,17 @@ a.search-form-close {
 	width: 50%;
 	display: block;
 	margin: 15px auto;
+}
+
+/***********************************************************************************
+*	- ADMIN -- Modif Accueil
+***********************************************************************************/
+
+.btn-fix{
+	position: fixed;
+	right: 3vw;
+	top: 20vh;
+	width: 15vw;
 }
 
 /***********************************************************************************

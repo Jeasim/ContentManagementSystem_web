@@ -32,6 +32,12 @@ const viderNode = (node) =>{
 	}
 }
 
+const ajouterNodesFormulaire = (champs) =>{
+	champs.forEach(champ => {
+		nodeListeEmployes.appendChild(champ);
+	});
+}
+
 const confimerSupression = (node, employeID) =>{
 	let nodeBtnGroup = node.parentNode;
 	viderNode(nodeBtnGroup);
@@ -153,6 +159,7 @@ const creerFormulaireEmploye = (titre, fonctionnalite) =>{
 
 const ajouterTitre = (titre) =>{
 	let nodeTitreForm = document.createElement("h2");
+	nodeTitreForm.setAttribute("class", "titre-formulaire");
 	nodeTitreForm.innerHTML = titre;
 	nodeListeEmployes.appendChild(nodeTitreForm);
 }
@@ -212,16 +219,4 @@ const creerBouton = (fonctionnalite, parent, couleur) =>{
 	parent.appendChild(nodeBouton);
 
 	return nodeBouton;
-}
-
-const ajouterNodesFormulaire = (champs) =>{
-	champs.forEach(champ => {
-		nodeListeEmployes.appendChild(champ);
-	});
-}
-
-const viderNode = (node) =>{
-	while (node.hasChildNodes()) {
-		node.removeChild(node.firstChild);
-	}
 }

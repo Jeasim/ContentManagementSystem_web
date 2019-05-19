@@ -33,7 +33,7 @@
 		<div class="employes">
 			<div class="liste-employes">
 
-				<h2><?= $action->departementSelectionne ?></h2>
+				<h2 class="titre-formulaire"><?= $action->departementSelectionne ?></h2>
 						<?php
 							foreach ($action->employes as $employe) {
 							?>
