@@ -219,7 +219,7 @@
                                         <a href="adminModifEquipe">Modifier la page "Équipe"</a>
                                     </li>
                                     <li>
-                                        <a href="">Modifier la page "Projets"</a>
+                                        <a href="adminModifProjets">Modifier la page "Projets"</a>
                                     </li>
                                     <li>
                                         <a href="?logout=true">Se déconnecter</a>

@@ -1,7 +1,7 @@
 <?php
 	require_once("action/CommonAction.php");
 
-	class AdminModifProjets_Action extends CommonAction {
+	class Nos_projets_Action extends CommonAction {
 
 		public $projetsEnCours;
 		public $projetsTermines;
@@ -10,7 +10,7 @@
 
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Modification 'Projets'", "admin", null, null, "Administrateur");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, CommonAction::$VISIBILITY_PUBLIC, "Nos Projets", "projets", "Accueil", "index.php", "Nos Projets");
 		}
 
 		protected function executeAction() {

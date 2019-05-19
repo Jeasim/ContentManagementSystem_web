@@ -152,6 +152,20 @@
 		}
 
 
+		public static function fetchProjets($statut){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT * FROM projets WHERE statut = ?");
+			$statement->bindParam(1, $statut);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
 
+			$projets = [];
+
+			while($row = $statement->fetch()) {
+				$projets[] = $row;
+			}
+
+			return $projets;
+		}
 
 	}

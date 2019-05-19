@@ -1,8 +1,7 @@
 <?php
-	require_once("action/AdminModifProjets_Action.php");
 	require_once("action/DAO/TexteModifiableDAO.php");
-
-	$action = new AdminModifProjets_Action();
+	require_once("action/Nos_projets_Action.php");
+	$action = new Nos_projets_Action();
 	$action->execute();
 
 	require_once("partial/header.php");
