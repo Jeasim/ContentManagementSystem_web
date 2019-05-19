@@ -2160,44 +2160,75 @@ a.search-form-close {
 /***********************************************************************************
  *	+ PAGE ERREUR
  ***********************************************************************************/
-.zone-animation-loupe{
-	margin-top: 10vh;
-	height: 50vh;
-	width: 50vw;
+
+ .zone-animation-loupe{
+	height: 100%;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
-	/* background-color: thistle; */
 }
 
-#loupe{
+ #loupe{
 	background-image:  url("..\images\loupe2.svg");
-	/* background-color: yellow; */
-	max-height: 30vh;
+	max-height: 10vh;
 	width: 10vw;
 	opacity: 0.0;
 	position: absolute;
 	top: 30%;
 	left: 37%;
-	z-index: 0;
 }
 
 .texte-erreur{
-	font-size: 1.5em;
-	position: absolute;
-	display: block;
+	padding: 5vh 5vw;
+	margin: 0 auto;
+	font-size: 1em;
 	text-align: center;
-	top: 30vh;
-	right: 0;
-	left: 0;
-	margin-left: auto;
-	margin-right: auto;
-	display: none;
 }
 
 .texte-erreur h1{
-	font-size: 2.0em;
+	font-size: 1.5em;
 	color:#00a0db;
+	text-align: center;
 }
+
+#erreur-404{
+	display: none;
+}
+
+#erreur-500{
+	display: block;
+}
+
+ @media (min-width: 1200px) {
+	.zone-animation-loupe{
+		margin-top: 10vh;
+		height: 50vh;
+		width: 50vw;
+	}
+
+	#loupe{
+		max-height: 30vh;
+		width: 10vw;
+		position: absolute;
+	}
+
+	.texte-erreur{
+		font-size: 1.5em;
+		position: absolute;
+		display: block;
+		top: 15vh;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0;
+	}
+
+	.texte-erreur h1{
+		font-size: 2.0em;
+	}
+ }
+
 
 
 

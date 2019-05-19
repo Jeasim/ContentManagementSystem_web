@@ -8,32 +8,34 @@
 
 <script src="js/pageErreur.js"></script>
 
-
-		<?php
-			if ($_GET["code"] == 404) {
-				?>
-
-					<div class="zone-animation-loupe">
-						<img src="assets\images\loupe2.svg" alt="loupe" id="loupe">
-						<div class="texte-erreur">
-							<h1>Impossible de trouver cette page</h1>
-							<p>Nous ne trouvons pas la page que vous recherchez.</p>
-						</div>
+	<?php
+		if ($_GET["code"] == 404) {
+			?>
+				<div class="zone-animation-loupe">
+					<img src="assets\images\loupe2.svg" alt="loupe" id="loupe">
+					<div class="texte-erreur" id="erreur-404">
+						<h1>Impossible de trouver cette page</h1>
+						<p>Nous ne trouvons pas la page que vous recherchez.</p>
 					</div>
-					<script>
-						animationLoupe();
-					</script>
+				</div>
+				<script>
+					animationLoupe();
+				</script>
 
+			<?php
+		}
+		else if ($_GET["code"] == 500) {
+			?>
+			<div class="zone-animation-loupe">
+				<div class="texte-erreur" id="erreur-500">
+					<h1>Une erreur interne s'est produite</h1>
+					<p>Désolé pour ce désagrément.</p>
+				</div>
+			</div>
 
-
-				<?php
-			}
-			else if ($_GET["code"] == 500) {
-				?>
-				Aye, erreur interne
-				<?php
-			}
-		?>
+			<?php
+		}
+	?>
 
 
 

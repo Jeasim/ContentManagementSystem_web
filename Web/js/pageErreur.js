@@ -4,8 +4,8 @@ let idIntervalOpaciteLoupe	 	= null;
 let idIntervalDeplacmentLoupe 	= null;
 let posXLoupe					= null;
 let posYLoupe					= null;
-let vitesseXLoupe 				= 1.5;
-let vitesseYLoupe 				= 1.5;
+let vitesseXLoupe 				= 0.3;
+let vitesseYLoupe 				= 0.3;
 
 window.onload = () =>{
 	opaciteLoupe = 0;
@@ -27,7 +27,7 @@ const fadeInImageLoupe = () =>{
 	else{
 		opaciteLoupe = 1;
 		clearInterval(idIntervalOpaciteLoupe);
-		idIntervalDeplacmentLoupe = setInterval(() => { deplacementLoupe() }, 100);
+		idIntervalDeplacmentLoupe = setInterval(() => { deplacementLoupe() }, 30);
 		document.querySelector(".texte-erreur").style.display = "block";
 	}
 
@@ -40,10 +40,10 @@ const deplacementLoupe = () =>{
 	posXLoupe += vitesseXLoupe;
 	posYLoupe += vitesseYLoupe;
 
-	if(posXLoupe >= 65 || posXLoupe <= 10){
+	if(posXLoupe >= 65 || posXLoupe <= 5){
 		vitesseXLoupe *= -1;
 	}
-	if(posYLoupe >= 65 || posYLoupe <= 10){
+	if(posYLoupe >= 65 || posYLoupe <= 5){
 		vitesseYLoupe *= -1;
 	}
 
