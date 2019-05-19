@@ -316,8 +316,7 @@ INSERT INTO employes (
     nom,
     id_departement,
     poste,
-    info_sup1,
-    info_sup2
+    info_sup1
 ) VALUES (
     'Tara Flanagan
 ',
@@ -330,8 +329,7 @@ INSERT INTO employes (
             nom = 'Chercheuses et chercheurs affiliés'
     ),
     'Professeure Associée à l''Université McGill',
-    'Département d''Educational and Counselling Psychology',
-    'Chercheuse associée au Réseau de Recherche Adaptech'
+    'Département d''Educational and Counselling Psychology'
 );
 
 

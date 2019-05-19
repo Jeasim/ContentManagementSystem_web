@@ -6,16 +6,26 @@
 	require_once("partial/header.php");
 ?>
 
-		<h1>
+<script src="js/pageErreur.js"></script>
+
+
 		<?php
-			if ($_GET["code"] == 403) {
+			if ($_GET["code"] == 404) {
 				?>
-				Accès refusé
-				<?php
-			}
-			else if ($_GET["code"] == 404) {
-				?>
-				Oh my god they found me... <br/>I don't know how but they found me... <br/>run for it Marty !
+
+					<div class="zone-animation-loupe">
+						<img src="assets\images\loupe2.svg" alt="loupe" id="loupe">
+						<div class="texte-erreur">
+							<h1>Impossible de trouver cette page</h1>
+							<p>Nous ne trouvons pas la page que vous recherchez.</p>
+						</div>
+					</div>
+					<script>
+						animationLoupe();
+					</script>
+
+
+
 				<?php
 			}
 			else if ($_GET["code"] == 500) {
@@ -24,7 +34,10 @@
 				<?php
 			}
 		?>
-		</h1>
+
+
+
+
 
 
 <?php
