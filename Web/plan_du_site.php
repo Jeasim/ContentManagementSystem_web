@@ -1,4 +1,8 @@
 <?php
+	require_once("action/Plan_du_site_Action.php");
+	$action = new Plan_du_site_Action();
+	$action->execute();
+
 	require_once("partial/header.php");
 ?>
 
@@ -21,8 +25,16 @@
 							<li class="page_item page-item-26"><a href="partenaires">Partenaires</a></li>
 						</ul>
 					</li>
-
-					<!-- Ajouter "Équipe" et sous sous-pages -->
+					<li class="page_item page-item-5 page_item_has_children"><a href="equipe">Équipe du CRISPESH</a>
+						<ul class='children'>
+							<li class="page_item page-item-17"><a href="personnel_administratif">Personnel administratif</a></li>
+							<li class="page_item page-item-24"><a href="personnel_scientifique">Personnel scientifique</a></li>
+							<li class="page_item page-item-19"><a href="etudiants">Étudiants (Assistants de recherche et stagiaires)</a></li>
+							<li class="page_item page-item-26"><a href="chercheurses_chercheurs">Chercheuses et chercheurs affiliés</a></li>
+							<li class="page_item page-item-26"><a href="conseil">Conseil d’administration</a></li>
+							<li class="page_item page-item-26"><a href="emplois">Emplois au CRISPESH et formation de la relève scientifique</a></li>
+						</ul>
+					</li>
 
 					<li class="page_item page-item-144 page_item_has_children"><a href="services">Nos services</a>
 						<ul class='children'>

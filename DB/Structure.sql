@@ -9,6 +9,7 @@ DROP TABLE projets CASCADE CONSTRAINTS;
 
 DROP TABLE infos_projets CASCADE CONSTRAINTS;
 
+SET DEFINE OFF;
 
 -- CREATE TABLES --
 
@@ -72,9 +73,7 @@ INSERT INTO accueil (
     contenu,
     section
 ) VALUES (
-    'INNOVER POUR FAVORISER LA PARTICIPATION SOCIALE
-
-DES PERSONNES EN SITUATION DE HANDICAP',
+    '<h1><p>INNOVER POUR FAVORISER LA PARTICIPATION SOCIALE</p><p>DES PERSONNES EN SITUATION DE HANDICAP</p></h1>',
     'entete'
 );
 
@@ -82,10 +81,7 @@ INSERT INTO accueil (
     contenu,
     section
 ) VALUES (
-    'Le Centre de recherche pour l inclusion des personnes en situation de handicap (CRISPESH) est un centre collégial de transfert de technologie en pratiques sociales novatrices (CCTT-PSN), né d un partenariat entre le Cégep du Vieux Montréal et le Collège Dawson. Le Centre a été reconnu en octobre 2010 par le Ministère de l Éducation et de l Enseignement Supérieur.
-
-En juillet 2015, le cégep du Vieux Montréal et le collège Dawson confiaient la gestion du CRISPESH à un organisme
-à but non lucratif du même nom créé dans le but de réaliser le mandat du Centre.'
+    '<p><br/>Le Centre de recherche pour l''inclusion des personnes en situation de handicap (CRISPESH) est un centre collégial de transfert de technologie en pratiques sociales novatrices (CCTT-PSN), né d''un partenariat entre le <a href="http://www.cvm.qc.ca/Pages/index.aspx" target="_blank">Cégep du Vieux Montréal </a> et le <a href="http://www.dawsoncollege.qc.ca/french/" target="_blank">Collège Dawson</a>. Le Centre a été reconnu en octobre 2010 par le <a href="http://www.education.gouv.qc.ca/" target="_blank">Ministère de l''Éducation et de l''Enseignement Supérieur.</a></p><p>En juillet 2015, le cégep du Vieux Montréal et le collège Dawson confiaient la gestion du CRISPESH à un organisme<br> à but non lucratif du même nom créé dans le but de réaliser le mandat du Centre.</p>'
 ,
     'presentation'
 );
@@ -800,10 +796,9 @@ INSERT INTO infos_projets (
 );
 
 INSERT INTO projets (
-        nom,
-        contenu
-    )
-VALUES (
+    nom,
+    contenu
+) VALUES (
     'Développement d''un modèle d''incubateur d''entreprises inclusif destiné aux Autochtones (2016-2018)',
     '<p>Les inégalités salariales et d''accès à l''emploi persistent entre les Autochtones et le reste de la population canadienne. Par ailleurs, les membres des Premières Nations qui se retrouvent en situation de handicap (troubles de santé mentale, handicap physique, sensoriel ou moteur, trouble ou difficulté d''apprentissage, etc.) peuvent facilement être sujets à une double discrimination sur le marché de l''emploi, de par leur appartenance culturelle et leurs besoins particuliers. Ces facteurs freinent leur épanouissement professionnel et empêchent le marché du travail de bénéficier de travailleurs qualifiés qui pourraient contribuer au maintien d''une économie locale prospère.</p<p>L''entrepreneuriat représente une voie qui peut faciliter l''inclusion sociale et économique de personnes marginalisées en misant sur leurs intérêts et leurs compétences. Cette avenue est flexible, facilement adaptable aux besoins particuliers des individus qui s''y engagent et respectueuse des conceptions sociales et culturelles spécifiques de l''économie locale. Toutefois, du soutien et de l''accompagnement sont essentiels afin de rendre cette voie possible et durable. En ce sens, l''incubateur d''entreprises est une structure d''accompagnement adaptée qui offre différents services afin de faciliter le passage de l''idée à la mise en place d''un projet d''entreprise.</p><p>Ce projet permettra de développer un modèle d''incubateur d''entreprises inclusif qui répondrait aux besoins et aux aspirations des membres des Premières Nations du Québec. Celui-ci sera inclusif puisqu''il sera adapté d''emblée pour les personnes en situation de handicap.</p>'
 );
@@ -1011,7 +1006,8 @@ INSERT INTO projets (
 ) VALUES (
     'Conception d''un vêtement de compression adapté pour des adolescents et de jeunes adultes vivant avec un trouble du spectre de l''autisme (2015-2016)'
 ,
-    '<p>Dans le cadre du Programme d''aide à la recherche et au transfert (PART), Vestechpro et le CRISPESH se sont associées à une entreprise québécoise pour concevoir un vêtement de compression adapté pour les adolescents et les jeunes adultes atteints d''un trouble du spectre de l''autisme. En effet, les vêtements disponibles à l''heure actuelle ne répondent pas aux besoins de cette clientèle. Les clients trouvent que ces vêtements sont volumineux, coûtent cher, ne sont pas totalement confortables et sont rarement ajustables au besoin de chacun en matière de pression ou compression. De plus, les produits disponibles visent surtout les jeunes enfants et permettent souvent d''identifier les personnes les portant comme étant différentes en raison de leur style particulier.</p><p>Ainsi, l''objectif principal de ce projet était la conception d''un vêtement adapté pour les adolescents et les jeunes adultes atteints d''un trouble du spectre de l''autisme.</p>',
+    '<p>Dans le cadre du Programme d''aide à la recherche et au transfert (PART), Vestechpro et le CRISPESH se sont associées à une entreprise québécoise pour concevoir un vêtement de compression adapté pour les adolescents et les jeunes adultes atteints d''un trouble du spectre de l''autisme. En effet, les vêtements disponibles à l''heure actuelle ne répondent pas aux besoins de cette clientèle. Les clients trouvent que ces vêtements sont volumineux, coûtent cher, ne sont pas totalement confortables et sont rarement ajustables au besoin de chacun en matière de pression ou compression. De plus, les produits disponibles visent surtout les jeunes enfants et permettent souvent d''identifier les personnes les portant comme étant différentes en raison de leur style particulier.</p><p>Ainsi, l''objectif principal de ce projet était la conception d''un vêtement adapté pour les adolescents et les jeunes adultes atteints d''un trouble du spectre de l''autisme.</p>'
+,
     1
 );
 
@@ -1072,7 +1068,8 @@ INSERT INTO projets (
     statut
 ) VALUES (
     'Consortium de recherche sur la gestion de la diversité en emploi (2014-2015)',
-    '<p>Ce projet a regroupé trois centres collégiaux de transfert de technologie en pratiques sociales novatrices (CCTT-PSN) en vue de promouvoir et de favoriser l''inclusion professionnelle des jeunes âgés entre 25 et 34 ans de divers horizons, dont les immigrants et les personnes en situation de handicap. Le CRISPESH, le Centre d''études des conditions de vie et des besoins de la population (ÉCOBES) et l''Institut de recherche sur l''intégration professionnelle des immigrants (IRIPI) ont uni leurs expertises dans le cadre de cette alliance stratégique qui, à terme, a proposé une offre de service visant à améliorer le taux d''emploi de cette population et à répondre aux besoins de main-d''œuvre des entreprises québécoises.</p>',
+    '<p>Ce projet a regroupé trois centres collégiaux de transfert de technologie en pratiques sociales novatrices (CCTT-PSN) en vue de promouvoir et de favoriser l''inclusion professionnelle des jeunes âgés entre 25 et 34 ans de divers horizons, dont les immigrants et les personnes en situation de handicap. Le CRISPESH, le Centre d''études des conditions de vie et des besoins de la population (ÉCOBES) et l''Institut de recherche sur l''intégration professionnelle des immigrants (IRIPI) ont uni leurs expertises dans le cadre de cette alliance stratégique qui, à terme, a proposé une offre de service visant à améliorer le taux d''emploi de cette population et à répondre aux besoins de main-d''œuvre des entreprises québécoises.</p>'
+,
     1
 );
 
@@ -1099,7 +1096,8 @@ INSERT INTO projets (
     statut
 ) VALUES (
     'Formation par simulation en santé mentale (2015-2016)',
-    '<p>Grâce à une subvention du Ministère de l''Économie et des Importations du Québec, le CRISPESH a développé un modèle de formation par simulation en santé mentale offert sur support multimédia pour les intervenants d''une ressource communautaire œuvrant en région éloignée au sein d''une communauté inuit.</p>',
+    '<p>Grâce à une subvention du Ministère de l''Économie et des Importations du Québec, le CRISPESH a développé un modèle de formation par simulation en santé mentale offert sur support multimédia pour les intervenants d''une ressource communautaire œuvrant en région éloignée au sein d''une communauté inuit.</p>'
+,
     1
 );
 
@@ -1161,7 +1159,7 @@ INSERT INTO projets (
 ) VALUES (
     'L''amélioration du français écrit des adultes ayant un trouble d''apprentissage, soutenus par les aides technologiques (2012-2014)'
 ,
-    'p>La problématique à l''origine de cette recherche est liée à la croissance de l''utilisation des aides technologiques pour améliorer la qualité du français écrit des adultes ayant un trouble d''apprentissage. L''omniprésence de l''écriture dans notre société actuelle justifie d''ailleurs cet intérêt marqué. Le problème, par contre, est que cette utilisation est peu documentée et peu évaluée. De plus, jusqu''à ce jour, aucune recherche n''a évalué l''effet de l''accompagnement dans l''utilisation des aides technologiques dans une perspective d''amélioration de l''écriture.</p><p>Donc, présentement, on offre différents services et fonctions d''aide de logiciels sans vraiment connaître l''impact réel des technologies sur le processus d''écriture ou même sur la qualité du français écrit. C''est pour pallier cette situation que, dans le cadre de cette recherche, un devis à cas unique, pour cinq sujets, a été retenu afin de permettre l''évaluation à la fois de l''effet de l''utilisation de certaines fonctions d''aide à l''écriture (édition de texte, dictionnaires, révision-correction et rétroaction vocale) et l''effet de l''accompagnement. La volonté d''élaborer un guide d''accompagnement dans l''utilisation des aides technologiques auprès des adultes ayant un trouble d''apprentissage soutenait également ce choix.</p><p>Les sujets ont donc été accompagnés dans leur processus d''écriture avec aides technologiques pendant 15 semaines à raison d''une fois par semaine. Tout au long de l''expérimentation, ceux-ci ont dû produire une rédaction hebdomadaire, ce qui nous a permis d''obtenir des données. L''analyse des résultats a permis de tirer un certain nombre de recommandations permettant de moduler l''accompagnement dans les aides technologiques afin  qu''il soit plus efficace. Ainsi, il est permis de recommander l''utilisation des fonctions Édition de texte et Révision-correction à tout adulte ayant un trouble d''apprentissage à la condition essentielle qu''y soit associé un accompagnement sur la technique du logiciel ainsi que sur le développement de stratégies d''écriture intégrant les différentes fonctions d''aide. En contrepartie, la prudence est de mise  en ce qui concerne l''utilisation des fonctions Dictionnaires et Rétroaction vocale puisque la recherche a aussi mis en lumière l''efficacité moins constante de ces outils. Il devient donc nécessaire de s''assurer que l''utilisateur répond bien à cette mesure d''aide et qu''il y a effectivement une amélioration de la qualité de son français écrit avant de lui en permettre une utilisation autonome. L''encadrement est essentiel. Le transfert de ces résultats au partenaire, l''Institut des troubles d''apprentissage (ITA), s''est fait et se poursuivra par une collaboration entre les personnes ressources de l''organisme et les chercheurs. En dernier lieu, il apparaît important de poursuivre la recherche dans ce domaine encore peu exploré puisqu''un trop grand décalage subsiste entre la progression de la demande d''utilisation des aides technologiques et le développement des connaissances sur le sujet.</p>'
+    '<p>La problématique à l''origine de cette recherche est liée à la croissance de l''utilisation des aides technologiques pour améliorer la qualité du français écrit des adultes ayant un trouble d''apprentissage. L''omniprésence de l''écriture dans notre société actuelle justifie d''ailleurs cet intérêt marqué. Le problème, par contre, est que cette utilisation est peu documentée et peu évaluée. De plus, jusqu''à ce jour, aucune recherche n''a évalué l''effet de l''accompagnement dans l''utilisation des aides technologiques dans une perspective d''amélioration de l''écriture.</p><p>Donc, présentement, on offre différents services et fonctions d''aide de logiciels sans vraiment connaître l''impact réel des technologies sur le processus d''écriture ou même sur la qualité du français écrit. C''est pour pallier cette situation que, dans le cadre de cette recherche, un devis à cas unique, pour cinq sujets, a été retenu afin de permettre l''évaluation à la fois de l''effet de l''utilisation de certaines fonctions d''aide à l''écriture (édition de texte, dictionnaires, révision-correction et rétroaction vocale) et l''effet de l''accompagnement. La volonté d''élaborer un guide d''accompagnement dans l''utilisation des aides technologiques auprès des adultes ayant un trouble d''apprentissage soutenait également ce choix.</p><p>Les sujets ont donc été accompagnés dans leur processus d''écriture avec aides technologiques pendant 15 semaines à raison d''une fois par semaine. Tout au long de l''expérimentation, ceux-ci ont dû produire une rédaction hebdomadaire, ce qui nous a permis d''obtenir des données. L''analyse des résultats a permis de tirer un certain nombre de recommandations permettant de moduler l''accompagnement dans les aides technologiques afin  qu''il soit plus efficace. Ainsi, il est permis de recommander l''utilisation des fonctions Édition de texte et Révision-correction à tout adulte ayant un trouble d''apprentissage à la condition essentielle qu''y soit associé un accompagnement sur la technique du logiciel ainsi que sur le développement de stratégies d''écriture intégrant les différentes fonctions d''aide. En contrepartie, la prudence est de mise  en ce qui concerne l''utilisation des fonctions Dictionnaires et Rétroaction vocale puisque la recherche a aussi mis en lumière l''efficacité moins constante de ces outils. Il devient donc nécessaire de s''assurer que l''utilisateur répond bien à cette mesure d''aide et qu''il y a effectivement une amélioration de la qualité de son français écrit avant de lui en permettre une utilisation autonome. L''encadrement est essentiel. Le transfert de ces résultats au partenaire, l''Institut des troubles d''apprentissage (ITA), s''est fait et se poursuivra par une collaboration entre les personnes ressources de l''organisme et les chercheurs. En dernier lieu, il apparaît important de poursuivre la recherche dans ce domaine encore peu exploré puisqu''un trop grand décalage subsiste entre la progression de la demande d''utilisation des aides technologiques et le développement des connaissances sur le sujet.</p><p>Grâce à une subvention du Ministère de l''Économie et des Importations du Québec, le CRISPESH a développé un modèle de formation par simulation en santé mentale offert sur support multimédia pour les intervenants d''une ressource communautaire œuvrant en région éloignée au sein d''une communauté inuit.</p>'
 ,
     1
 );
@@ -1180,7 +1178,7 @@ INSERT INTO infos_projets (
             nom = 'L''amélioration du français écrit des adultes ayant un trouble d''apprentissage, soutenus par les aides technologiques (2012-2014)'
     ),
     'Chercheuse',
-    'Evelyne Pitre Enseignante au Cégep du Vieux Montréal <p>Département de français</p>'
+    'Evelyne Pitre Enseignante au Cégep du Vieux Montréal<p>Département de français</p>'
 );
 
 INSERT INTO infos_projets (
@@ -1197,8 +1195,7 @@ INSERT INTO infos_projets (
             nom = 'L''amélioration du français écrit des adultes ayant un trouble d''apprentissage, soutenus par les aides technologiques (2012-2014)'
     ),
     'Chercheur',
-    'Marc Tremblay
-Fondateur et Coordonnateur, Solutions aides technologiques'
+    'Marc Tremblay<p>Fondateur et Coordonnateur, Solutions aides technologiques</p>'
 );
 
 INSERT INTO infos_projets (
@@ -1218,13 +1215,16 @@ INSERT INTO infos_projets (
     '<p>Alexandra Cloutier</p><p>Mathieu Lauzon-Dicso</p><p>Camille Raunet</p>'
 );
 
+
+
 INSERT INTO projets (
     nom,
     contenu,
     statut
 ) VALUES (
     'Les applications pédagogiques de la conception universelle de l''apprentissage (2013-2015)',
-    '<p>Ce projet a conduit à l''élaboration de stratégies pédagogiques conçues selon les principes de la conception universelle de l''apprentissage (CUA). L''objectif était de soutenir les enseignants dans la planification de cours qui répondent à la fois aux besoins des étudiants en situation de handicap et à ceux de l''ensemble des étudiants de la classe. Ce projet s''inscrivait dans une perspective proactive en proposant des solutions pédagogiques axées sur la planification plutôt que sur des réponses rétroactives à des besoins individuels.</p><p>Grâce à ce projet interordres, cinq établissements postsecondaires ont travaillé de concert: l''Université de Montréal, l''Université du Québec à Montréal (UQAM), le Collège Montmorency, le Cégep Marie-Victorin et le Cégep du Vieux Montréal.</p>',
+    '<p>Ce projet a conduit à l''élaboration de stratégies pédagogiques conçues selon les principes de la conception universelle de l''apprentissage (CUA). L''objectif était de soutenir les enseignants dans la planification de cours qui répondent à la fois aux besoins des étudiants en situation de handicap et à ceux de l''ensemble des étudiants de la classe. Ce projet s''inscrivait dans une perspective proactive en proposant des solutions pédagogiques axées sur la planification plutôt que sur des réponses rétroactives à des besoins individuels.</p><p>Grâce à ce projet interordres, cinq établissements postsecondaires ont travaillé de concert: l''Université de Montréal, l''Université du Québec à Montréal (UQAM), le Collège Montmorency, le Cégep Marie-Victorin et le Cégep du Vieux Montréal.</p>'
+,
     1
 );
 
@@ -1285,9 +1285,16 @@ INSERT INTO projets (
     statut
 ) VALUES (
     'Intégrer les nouvelles populations étudiantes en situation de handicap aux études supérieures : mission possible (2011-2013)',
-    '<p>Ce projet a permis l''élaboration d''un modèle d''intégration pour les populations dites émergentes que nous convenons d''appeler dorénavant les nouvelles populations en situation de handicap. Par le développement d''outils généraux pour les étudiants, les intervenants, les enseignants et les établissements, ce projet a réuni les efforts de quatre établissements d''études postsecondaires: l''Université de Montréal, l''Université du Québec à Montréal (UQAM), le Collège Montmorency et le Cégep du Vieux Montréal.</p><p>Ainsi, dans le cadre du réinvestissement en enseignement supérieur par le Ministère de l''Éducation, du Loisir et du Sport (MELS, maintenant MEES), une équipe a travaillé à la mise en œuvre d''un projet intitulé : Intégrer les populations dites émergentes aux études supérieures: mission possible!</p><p>Les populations visées par ce projet sont les étudiants ayant des troubles d''apprentissage (TA), des troubles envahissants du développement (TED), des troubles déficitaires de l''attention (TDA/H) et des troubles graves de santé mentale (TGSM). Ce projet comportait trois volets auxquels étaient associés un ou deux groupes de travail composés de personnes travaillant dans les établissements participants, d''experts et de partenaires de l''externe pour mener à bien les huit activités sur une période de trois ans.</p><p>Ce projet s''est décliné en trois volets, qui vont comme suit:</p><ul><li>Volet 1 : Favoriser la transition interordres (collèges-universités)</li><li>Volet 2 : Identifier, harmoniser et consolider les meilleures pratiques en appui à leurs études</li><li>Volet 3 : Développer le soutien pédagogique aux enseignants</li></ul><p>Lors de la mise en œuvre des trois volets, des outils ont été réalisés et sont disponibles pour tous.</p>',
+    '<p>Ce projet a permis l''élaboration d''un modèle d''intégration pour les populations dites émergentes que nous convenons d''appeler dorénavant les nouvelles populations en situation de handicap. Par le développement d''outils généraux pour les étudiants, les intervenants, les enseignants et les établissements, ce projet a réuni les efforts de quatre établissements d''études postsecondaires: l''Université de Montréal, l''Université du Québec à Montréal (UQAM), le Collège Montmorency et le Cégep du Vieux Montréal.</p><p>Ainsi, dans le cadre du réinvestissement en enseignement supérieur par le Ministère de l''Éducation, du Loisir et du Sport (MELS, maintenant MEES), une équipe a travaillé à la mise en œuvre d''un projet intitulé : Intégrer les populations dites émergentes aux études supérieures: mission possible!</p><p>Les populations visées par ce projet sont les étudiants ayant des troubles d''apprentissage (TA), des troubles envahissants du développement (TED), des troubles déficitaires de l''attention (TDA/H) et des troubles graves de santé mentale (TGSM). Ce projet comportait trois volets auxquels étaient associés un ou deux groupes de travail composés de personnes travaillant dans les établissements participants, d''experts et de partenaires de l''externe pour mener à bien les huit activités sur une période de trois ans.</p><p>Ce projet s''est décliné en trois volets, qui vont comme suit:</p><ul><li>Volet 1 : Favoriser la transition interordres (collèges-universités)</li><li>Volet 2 : Identifier, harmoniser et consolider les meilleures pratiques en appui à leurs études</li><li>Volet 3 : Développer le soutien pédagogique aux enseignants</li></ul><p>Lors de la mise en œuvre des trois volets, des outils ont été réalisés et sont disponibles pour tous.</p>'
+,
     1
 );
--- ###################################################################
+
+
+-- INDEXES --
+
+CREATE INDEX idx_statut         ON projets(statut);
+CREATE INDEX idx_idDepartement  ON employes(id_departement);
+CREATE INDEX idx_idProjet       ON infos_projets(id_projet);
 
 COMMIT;
