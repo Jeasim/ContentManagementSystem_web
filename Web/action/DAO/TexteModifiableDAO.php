@@ -195,6 +195,16 @@
 			$statement->execute();
 		}
 
+		public static function ajouterInfoSupProjetParProjetID($projetID, $champ, $info){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare(" INSERT INTO infos_projets( id_projet, champ, info ) VALUES( ?, ?, ? )");
+			$statement->bindParam(1, $projetID);
+			$statement->bindParam(2, $champ);
+			$statement->bindParam(3, $info);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
 		public static function fetchProjetID($nomProjet){
 			$connection = Connection::getConnection();
 			$statement = $connection->prepare("SELECT id FROM projets WHERE nom = ?");
@@ -241,5 +251,34 @@
 			}
 
 			return $infoSup;
+		}
+
+		public static function modifierProjet($nom, $contenu, $statut, $projetID){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("UPDATE projets SET nom = ?, contenu = ?, statut = ? WHERE id = ? ");
+			$statement->bindParam(1, $nom);
+			$statement->bindParam(2, $contenu);
+			$statement->bindParam(3, $statut);
+			$statement->bindParam(4, $projetID);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
+		public static function modifierInfoSupProjet($champ, $info, $id){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("UPDATE infos_projets SET champ = ?, info = ? WHERE id = ? ");
+			$statement->bindParam(1, $champ);
+			$statement->bindParam(2, $info);
+			$statement->bindParam(3, $id);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
+		public static function supprimerInfosProjet($projetID){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("DELETE FROM infos_projets WHERE id_projet = ?");
+			$statement->bindParam(1, $projetID);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
 		}
 	}

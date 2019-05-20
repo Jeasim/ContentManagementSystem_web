@@ -100,7 +100,6 @@ const modifierEmploye = (employeIDParam) =>{
 	else{
 		alert("Les champs 'nom', 'poste' et 'département doivent être remplis'")
 	}
-
 }
 
 const ajouterEmploye = () =>{
@@ -129,7 +128,6 @@ const ajouterEmploye = () =>{
 	else{
 		alert("Les champs 'nom', 'poste' et 'département doivent être remplis'")
 	}
-
 }
 
 const supprimerEmploye = (employeIDParam) =>{

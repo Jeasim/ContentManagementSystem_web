@@ -24,7 +24,6 @@ const choisirSection = (node) => {
     })
     .done(result => {
 		contenu = JSON.parse(result);
-
 		editeur.setData( contenu );
     });
 }

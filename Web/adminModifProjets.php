@@ -47,7 +47,7 @@
 									</h4>
 
 									<div class="btn-group">
-										<div class="btn-blue btn single-btn">Modifier</div>
+										<div class="btn-blue btn single-btn" onclick="formulaireModifier('<?= $projet['ID'] ?>')">Modifier</div>
 										<div class="btn-blue btn single-btn" onclick="confimerSupression(this, '<?= $projet['ID'] ?>')">Supprimer</div>
 									</div>
 
@@ -95,7 +95,7 @@
 										<a title="<?= $projet["NOM"] ?>"><?= $projet["NOM"] ?></a>
 									</h4>
 									<div class="btn-group">
-										<div class="btn-blue btn single-btn">Modifier</div>
+										<div class="btn-blue btn single-btn" onclick="formulaireModifier('<?= $projet['ID'] ?>')">Modifier</div>
 										<div class="btn-blue btn single-btn" onclick="confimerSupression(this, '<?= $projet['ID'] ?>')">Supprimer</div>
 									</div>
 

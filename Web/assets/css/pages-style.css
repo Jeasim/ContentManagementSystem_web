@@ -2181,7 +2181,7 @@ a.search-form-close {
 .btn-fix{
 	position: fixed;
 	right: 3vw;
-	top: 20vh;
+	bottom: 10vh;
 	width: 15vw;
 	z-index: 10;
 }

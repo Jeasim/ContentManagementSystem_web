@@ -2,6 +2,7 @@ let nodeListeProjets 	= null;
 let btnAjouterChamp		= null;
 let nodeChampsSup		= null;
 let compteurInputInfo 	= 1;
+let infoSupIDs			= [];
 
 window.onload = () =>{
 	nodeListeProjets = document.querySelector(".listeProjets");
@@ -12,6 +13,15 @@ const formulaireAjouter = () =>{
 	creerFormulaireProjet("Ajouter un projet", "Ajouter");
 	document.getElementById("Ajouter").addEventListener("click", ajouterNouveauProjet);
 	(document.getElementById("btn-ajouter-projet")).style.display = "none";
+}
+
+const formulaireModifier = (projetID) =>{
+	viderNode(nodeListeProjets);
+	creerFormulaireProjet("Modifier un projet", "Modifier");
+	remplirChampsInfosProjets(projetID);
+	remplirChampsInfosSupProjets(projetID);
+	(document.getElementById("btn-ajouter-projet")).style.display = "none";
+	(document.getElementById("Modifier")).addEventListener("click", ()=>modifierProjet(projetID));
 }
 
 const ajouterNouveauProjet = () =>{
@@ -34,7 +44,23 @@ const confimerSupression = (node, projetID) =>{
 	btnAnnuler.addEventListener("click", ()=>location.reload());
 }
 
+const remplirChampsInfosProjets = (projetIDParam) =>{
 
+	$.ajax({
+        url : "fetchProjet.php",
+        type: "POST",
+        data: {
+			projetID : projetIDParam
+		}
+    })
+    .done(response => {
+		infosProjet = JSON.parse(response);
+
+		document.querySelector("input[name = 'NOM']").value = infosProjet["NOM"];
+		CKEDITOR.instances.CONTENU.setData( infosProjet["CONTENU"] );
+		document.getElementById("select-statut-input").value = infosProjet["STATUT"];
+	});
+}
 
 const champsObligatoiresRemplis = () =>{
 	return ((document.querySelector("input[name = 'NOM']").value != "") && (CKEDITOR.instances.CONTENU.getData()));
@@ -83,6 +109,100 @@ const ajouterInfoSup = () =>{
 		}
 	}
 }
+
+
+const modifierProjet = (projetIDParam) =>{
+	$.ajax({
+		url : "modifierProjet.php",
+		type: "POST",
+		data: {
+			projetID :		projetIDParam,
+			nom : 		document.querySelector("input[name = 'NOM']").value,
+			contenu : 	CKEDITOR.instances.CONTENU.getData(),
+			statut : 	document.getElementById("select-statut-input").value
+		}
+	})
+	.done(response => {
+		message = JSON.parse(response);
+		modifierInfosProjet(projetIDParam);
+	});
+}
+
+const modifierInfosProjet = (projetIDParam) =>{
+
+	supprimerInfosSup(projetIDParam);
+
+
+	for (let i = 1; i <= compteurInputInfo; i++) {
+
+		champID = "CHAMP" + i;
+		infoID = "INFO" + i;
+		indexID = 0;
+		console.log(infoSupIDs[indexID]);
+
+		if(CKEDITOR.instances[infoID].getData() != ""){
+			$.ajax({
+				url : "ajouterInfosSupProjet.php",
+				type: "POST",
+				data: {
+					champ : 	document.getElementById(champID).value,
+					info : 		CKEDITOR.instances[infoID].getData(),
+					nom : 		document.querySelector("input[name = 'NOM']").value,
+				}
+			})
+			.done(response => {
+				message = JSON.parse(response);
+				// location.reload();
+			});
+		}
+
+		indexID++;
+	}
+}
+
+const supprimerInfosSup = (projetIDParam) => {
+	$.ajax({
+		url : "supprimerInfosSupProjet.php",
+		type: "POST",
+		data: {
+			projetID : projetIDParam
+		}
+	})
+	.done(response => {
+		message = JSON.parse(response);
+	});
+}
+
+const remplirChampsInfosSupProjets = (projetIDParam) =>{
+	$.ajax({
+		url : "fetchInfosSupProjet.php",
+        type: "POST",
+        data: {
+			projetID : projetIDParam
+		}
+    })
+    .done(response => {
+		infosSupProjet = JSON.parse(response);
+
+
+
+		infosSupProjet.forEach(infoSupProjet => {
+			ajouterNouveauChampInfo();
+
+			compteurInputInfoInterne = compteurInputInfo - 1;
+
+			champID = "CHAMP" + compteurInputInfoInterne;
+			infoID = "INFO" + compteurInputInfoInterne;
+
+			document.getElementById(champID).value = infoSupProjet.CHAMP;
+			CKEDITOR.instances[infoID].setData(infoSupProjet.INFO);
+
+			infoSupIDs.push(infoSupProjet.ID);
+		});
+	});
+}
+
+
 
 
 const supprimerProjet = (projetIDParam) =>{

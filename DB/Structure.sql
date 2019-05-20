@@ -39,7 +39,7 @@ CREATE TABLE employes (
     info_sup2        VARCHAR2(100) DEFAULT '',
     CONSTRAINT pk_employes PRIMARY KEY ( id ),
     FOREIGN KEY ( id_departement )
-        REFERENCES departements ( id )
+        REFERENCES departements ( id ) ON DELETE CASCADE
 );
 
 CREATE TABLE projets (
@@ -60,7 +60,7 @@ CREATE TABLE infos_projets (
     info        VARCHAR2(1000) NOT NULL,
     CONSTRAINT pk_infosprojet PRIMARY KEY ( id ),
     FOREIGN KEY ( id_projet )
-        REFERENCES projets ( id )
+        REFERENCES projets ( id ) ON DELETE CASCADE
 );
 
 
