@@ -18,12 +18,12 @@
 			$this->contenuPresentation = TexteModifiableDAO::lireTexteAccueil("presentation");
 
 			if(!empty($_POST["editeurPresentation"])){
-				$contenu = utf8_encode($_POST["editeurPresentation"] );
+				$contenu = $_POST["editeurPresentation"];
 				TexteModifiableDAO::updateTexteAccueil($contenu, "presentation");
 			}
 
 			if(!empty($_POST["editeurEntete"])){
-				$contenu = utf8_encode($_POST["editeurEntete"] );
+				$contenu = $_POST["editeurEntete"];
 				TexteModifiableDAO::updateTexteAccueil($contenu, "entete");
 			}
 		}

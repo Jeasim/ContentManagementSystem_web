@@ -24,8 +24,6 @@
 		public static function updateTexteAccueil($texteModif, $section){
 			$connection = Connection::getConnection();
 
-			$texteModif = utf8_encode($texteModif);
-
 			$statement = "UPDATE accueil SET contenu=? WHERE section=?";
 			$connection->prepare($statement)->execute([$texteModif, $section]);
 		}
@@ -151,6 +149,15 @@
 			$statement->execute();
 		}
 
+		public static function ajouterProjet($nom, $contenu, $statut){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare(" INSERT INTO projets( nom, contenu, statut ) VALUES( ?, ?, ? )");
+			$statement->bindParam(1, $nom);
+			$statement->bindParam(2, $contenu);
+			$statement->bindParam(3, $statut);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
 
 		public static function fetchProjets($statut){
 			$connection = Connection::getConnection();
@@ -167,7 +174,6 @@
 
 			return $projets;
 		}
-
 
 		public static function supprimerProjet($projetID){
 			$connection = Connection::getConnection();

@@ -1,5 +1,6 @@
 let nodeListeProjets 	= null;
 let btnAjouterChamp		= null;
+let nodeChampsSup		= null;
 let compteurInputInfo 	= 1;
 
 window.onload = () =>{
@@ -9,7 +10,7 @@ window.onload = () =>{
 const formulaireAjouter = () =>{
 	viderNode(nodeListeProjets);
 	creerFormulaireProjet("Ajouter un projet", "Ajouter");
-	document.getElementById("Ajouter").addEventListener("click", ()=>console.log("from"));
+	document.getElementById("Ajouter").addEventListener("click", ajouterProjet);
 	(document.getElementById("btn-ajouter-projet")).style.display = "none";
 }
 
@@ -21,6 +22,38 @@ const confimerSupression = (node, projetID) =>{
 
 	btnConfirmer.addEventListener("click", ()=>supprimerProjet(projetID));
 	btnAnnuler.addEventListener("click", ()=>location.reload());
+}
+
+const champsObligatoiresRemplis = () =>{
+	return ((document.querySelector("input[name = 'NOM']").value != "") && (CKEDITOR.instances.CONTENU.getData()));
+}
+
+// Requêtes AJAX
+const ajouterProjet = () =>{
+	console.log(document.getElementById("select-statut-input").value);
+
+
+	if(champsObligatoiresRemplis()){
+		$.ajax({
+			url : "ajouterProjet.php",
+			type: "POST",
+			data: {
+				nom : 		document.querySelector("input[name = 'NOM']").value,
+				contenu : 	CKEDITOR.instances.CONTENU.getData(),
+				statut : 	document.getElementById("select-statut-input").value
+			}
+		})
+		.done(response => {
+			message = JSON.parse(response);
+			console.log(message);
+
+			location.reload();
+		});
+	}
+	else{
+		alert("Les champs 'nom' et 'contenu' doivent être remplis'")
+	}
+
 }
 
 
@@ -58,9 +91,18 @@ const ajouterChamps = () =>{
 	let champs = [];
 	champs.push(creerNouveauChamp("Titre du projet:", "NOM", "input"));
 	champs.push(creerNouveauChamp("Contenu:", "CONTENU", "textarea"));
-	champs.push(creerNouveauChamp("Champ #" + compteurInputInfo +  ":", "CHAMP" + compteurInputInfo, "input"));
-	champs.push(creerNouveauChamp("Information #" + compteurInputInfo +  ":", "INFO" + compteurInputInfo,"textarea"));
 	ajouterNodesFormulaire(champs);
+
+	nodeChampsSup = document.createElement("div");
+	nodeChampsSup.setAttribute("id", "champsSup");
+	let nodeChampSup =  creerNouveauChamp("Champ #" + compteurInputInfo +  ":", "CHAMP" + compteurInputInfo, "input");
+	let nodeInfoSup =  creerNouveauChamp("Information #" + compteurInputInfo +  ":", "INFO" + compteurInputInfo,"textarea");
+	nodeChampsSup.appendChild(nodeChampSup);
+	nodeChampsSup.appendChild(nodeInfoSup);
+	nodeListeProjets.appendChild(nodeChampsSup);
+
+	let nodeStatutProjet = creerSelectionStatut();
+	nodeListeProjets.appendChild(nodeStatutProjet);
 
 	CKEDITOR.replace( 'CONTENU' );
 	CKEDITOR.replace( 'INFO' + compteurInputInfo );
@@ -77,9 +119,9 @@ const ajouterBoutons = (fonctionnalite) =>{
 	btnAjouterChamp = document.createElement("div");
 	btnAjouterChamp.setAttribute("class", "btn-yellow btn");
 	btnAjouterChamp.setAttribute("id", "ajouter-champ");
-	btnAjouterChamp.innerHTML = "Ajouter champ";
+	btnAjouterChamp.innerHTML = "Ajouter un champ supplémentaire";
 	btnAjouterChamp.addEventListener("click", ajouterNouveauChampInfo);
-	nodeListeProjets.appendChild(btnAjouterChamp);
+	nodeListeProjets.insertBefore(btnAjouterChamp, document.getElementById("select-statut"));
 
 	let btnGroup = document.createElement("div");
 	btnGroup.setAttribute("class", "btn-group");
@@ -132,7 +174,6 @@ const viderNode = (node) =>{
 }
 
 const ajouterNouveauChampInfo = () =>{
-
 	compteurInputInfo++;
 
 	let nodeNouvelleInfo = document.createElement("div");
@@ -148,7 +189,33 @@ const ajouterNouveauChampInfo = () =>{
 	nodeInfo.appendChild(creerLabel("Information #" + compteurInputInfo + ":"));
 	nodeInfo.appendChild(creerInput("INFO" + compteurInputInfo, "textarea"));
 	nodeNouvelleInfo.appendChild(nodeInfo);
-	nodeListeProjets.insertBefore(nodeNouvelleInfo, btnAjouterChamp);
-	CKEDITOR.replace( 'INFO' + compteurInputInfo );
 
+	nodeChampsSup.appendChild(nodeNouvelleInfo);
+	CKEDITOR.replace( 'INFO' + compteurInputInfo );
+}
+
+const creerSelectionStatut = () =>{
+
+	let nodeChamp = document.createElement("div");
+	nodeChamp.setAttribute("class", "form-single-line");
+	nodeChamp.setAttribute("id", "select-statut");
+	nodeChamp.appendChild(creerLabel("Statut du projet"));
+
+	let nodeSelect = document.createElement("select");
+	nodeSelect.setAttribute("id", "select-statut-input");
+
+	let nodeOptionEnCours = document.createElement("option");
+	nodeOptionEnCours.innerHTML = "En cours";
+	nodeOptionEnCours.setAttribute("value", "0");
+
+	let nodeOptionTermine = document.createElement("option");
+	nodeOptionTermine.innerHTML = "Complété";
+	nodeOptionTermine.setAttribute("value", "1");
+
+	nodeSelect.appendChild(nodeOptionEnCours);
+	nodeSelect.appendChild(nodeOptionTermine);
+
+	nodeChamp.appendChild(nodeSelect);
+
+	return nodeChamp;
 }

@@ -105,8 +105,6 @@ const modifierEmploye = (employeIDParam) =>{
 
 const ajouterEmploye = () =>{
 
-	console.log("eill");
-
 	if(champsObligatoiresRemplis()){
 		$.ajax({
 			url : "ajouterEmploye.php",
