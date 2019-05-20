@@ -10,8 +10,18 @@ window.onload = () =>{
 const formulaireAjouter = () =>{
 	viderNode(nodeListeProjets);
 	creerFormulaireProjet("Ajouter un projet", "Ajouter");
-	document.getElementById("Ajouter").addEventListener("click", ajouterProjet);
+	document.getElementById("Ajouter").addEventListener("click", ajouterNouveauProjet);
 	(document.getElementById("btn-ajouter-projet")).style.display = "none";
+}
+
+const ajouterNouveauProjet = () =>{
+	if(champsObligatoiresRemplis()){
+		// ajouterProjet();
+		ajouterInfoSup();
+	}
+	else{
+		alert("Les champs 'nom' et 'contenu' doivent être remplis'")
+	}
 }
 
 const confimerSupression = (node, projetID) =>{
@@ -24,36 +34,60 @@ const confimerSupression = (node, projetID) =>{
 	btnAnnuler.addEventListener("click", ()=>location.reload());
 }
 
+
+
 const champsObligatoiresRemplis = () =>{
 	return ((document.querySelector("input[name = 'NOM']").value != "") && (CKEDITOR.instances.CONTENU.getData()));
 }
 
 // Requêtes AJAX
 const ajouterProjet = () =>{
-	console.log(document.getElementById("select-statut-input").value);
+
+	$.ajax({
+		url : "ajouterProjet.php",
+		type: "POST",
+		data: {
+			nom : 		document.querySelector("input[name = 'NOM']").value,
+			contenu : 	CKEDITOR.instances.CONTENU.getData(),
+			statut : 	document.getElementById("select-statut-input").value
+		}
+	})
+	.done(response => {
+		message = JSON.parse(response);
+		console.log(message);
+
+		location.reload();
+	});
+
+}
+
+const ajouterInfoSup = () =>{
+
+	id = "INFO" + compteurInputInfo;
+	console.log(CKEDITOR.instances[id].getData());
+
+	for (let i = 1;  ) {
+
+		// console.log(CKEDITOR.instances[i].getData());
 
 
-	if(champsObligatoiresRemplis()){
-		$.ajax({
-			url : "ajouterProjet.php",
-			type: "POST",
-			data: {
-				nom : 		document.querySelector("input[name = 'NOM']").value,
-				contenu : 	CKEDITOR.instances.CONTENU.getData(),
-				statut : 	document.getElementById("select-statut-input").value
-			}
-		})
-		.done(response => {
-			message = JSON.parse(response);
-			console.log(message);
 
-			location.reload();
-		});
+		// $.ajax({
+		// 	url : "ajouterInfosSupProjet.php",
+		// 	type: "POST",
+		// 	data: {
+		// 		nom : 		document.querySelector("input[name = 'NOM']").value,
+		// 		contenu : 	CKEDITOR.instances.CONTENU.getData(),
+		// 		statut : 	document.getElementById("select-statut-input").value
+		// 	}
+		// })
+		// .done(response => {
+		// 	message = JSON.parse(response);
+		// 	console.log(message);
+
+		// 	location.reload();
+		// });
 	}
-	else{
-		alert("Les champs 'nom' et 'contenu' doivent être remplis'")
-	}
-
 }
 
 
