@@ -30,6 +30,7 @@
  *	+ SLIDERS
  *	+ ANIMATIONS
  *	+ WIDGETS
+ *	+ CENTER
  *  + RESPONSIVE
  *	 - EXTRA LARGE DISPLAY (>1400px)
  *	 - LARGE DISPLAY (>1200px)
@@ -3360,7 +3361,15 @@ body.taille_police a{
 }
 
 
+/* Centrer */
+.img-center{
+    display: block;
+    margin: 0 auto;
+}
 
+.text-center{
+    text-align: center;
+}
 
 /***********************************************************************************
  *	+ RESPONSIVE

@@ -1,5 +1,6 @@
-let listeProjets = null;
-let projet 		 = null;
+let listeProjets	 = null;
+let projet 		 	 = null;
+let nodeInfosSup	 = null;
 
 window.onload = () =>{
 	listeProjets = document.getElementById("liste-projets");
@@ -26,22 +27,27 @@ const remplirTemplateProjet = (infosProjet) =>{
 	node.querySelector(".nom-projet").innerHTML = infosProjet.NOM;
 	node.querySelector(".contenu-projet").innerHTML = infosProjet.CONTENU;
 
+	nodeInfosSup = node.querySelector("#infos-sup-projet");
+	console.log(nodeInfosSup);
+
+
 	fetchInfosSup(infosProjet.ID, node);
 
 	projet.appendChild(node);
 }
 
 const remplirDivsInfosSup = (infosSup, nodeParent) =>{
+
+	let charHTML = document.getElementById("template-info-projet").innerHTML;
+
 	infosSup.forEach(infoSup => {
-		let nodeInfoSup = document.createElement("div");
-		nodeInfoSup.setAttribute("class", "col-sm-12");
-		let nodeNomChamp = document.createElement("h6");
-		nodeNomChamp.innerHTML = infoSup.CHAMP;
-		let nodeInfo = document.createElement("div");
-		nodeInfo.innerHTML = infoSup.INFO;
-		nodeInfoSup.appendChild(nodeNomChamp);
-		nodeInfoSup.appendChild(nodeInfo);
-		nodeParent.appendChild(nodeInfoSup);
+		let node = document.createElement("div");
+		node.innerHTML = charHTML;
+
+		node.querySelector(".champ-projet").innerHTML = infoSup.CHAMP;
+		node.querySelector(".info-projet").innerHTML = infoSup.INFO;
+
+		nodeInfosSup.appendChild(node);
 	});
 }
 

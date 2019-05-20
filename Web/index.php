@@ -29,12 +29,12 @@
 	<div class="row">
 		<div class="col-sm-12">
 
-			<div class=" modifiable" id="accueil-presentation">
+			<div class="modifiable" id="accueil-presentation">
 				<br>
 				<?= $action->contenuPresentation ?>
 			</div><!-- texte modifiable par l'admin - "Présentation accueil" -->
 
-			<center><img src="assets/images/logo.png" alt=""></center>
+			<img src="assets/images/logo.png" alt="" class="img-center">
 			<br>
 			<p>Le CRISPESH fait partie du <a href="http://reseautranstech.qc.ca/" target="_blank">Réseau Trans-tech</a>, un regroupement de 49 centres collégiaux de transfert de technologie réunissant plus de 1000 experts à travers le Québec qui se dédient à l’innovation au moyen de la recherche appliquée et du transfert.</p>
 			<br>

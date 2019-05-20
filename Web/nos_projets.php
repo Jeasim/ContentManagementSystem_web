@@ -117,7 +117,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 			<br>
-				<center><h1 class="nom-projet"></h1></center>
+				<h1 class="nom-projet text-center"></h1>
 			</div>
 		</div>
 		<div class="row">
@@ -129,13 +129,14 @@
 
 				<p class="contenu-projet"></p>
 
-				<div class="col-sm-12 infos-sup-projet">
-					<div class="info-sup-projet">
+				<div id="infos-sup-projet"></div>
+				<template id="template-info-projet">
+					<div class="col-sm-12 info-sup-projet">
 						<hr>
 						<h6 class="champ-projet"></h6>
 						<div class="info-projet"></div>
 					</div>
-				</div>
+				</template>
 
 				<div class="col-sm-12">
 				<hr>
