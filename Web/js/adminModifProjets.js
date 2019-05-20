@@ -56,6 +56,8 @@ const remplirChampsInfosProjets = (projetIDParam) =>{
     .done(response => {
 		infosProjet = JSON.parse(response);
 
+		console.log(infosProjet["CONTENU"]);
+
 		document.querySelector("input[name = 'NOM']").value = infosProjet["NOM"];
 		CKEDITOR.instances.CONTENU.setData( infosProjet["CONTENU"] );
 		document.getElementById("select-statut-input").value = infosProjet["STATUT"];
@@ -152,7 +154,7 @@ const modifierInfosProjet = (projetIDParam) =>{
 			})
 			.done(response => {
 				message = JSON.parse(response);
-				// location.reload();
+				location.reload();
 			});
 		}
 
@@ -183,8 +185,6 @@ const remplirChampsInfosSupProjets = (projetIDParam) =>{
     })
     .done(response => {
 		infosSupProjet = JSON.parse(response);
-
-
 
 		infosSupProjet.forEach(infoSupProjet => {
 			ajouterNouveauChampInfo();
