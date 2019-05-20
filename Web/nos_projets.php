@@ -7,9 +7,12 @@
 	require_once("partial/header.php");
 ?>
 
+<script src="js/nosProjets.js"></script>
+
 <!-- CONTENT -->
 <div id="content">
 
+<div id="liste-projets">
 	<div class="headline">
 		<h3>Projets en cours</h3>
 	</div>
@@ -30,7 +33,7 @@
 								<div class="portfolio-item-thumbnail">
 								photo
 								<!-- <img src="images/projets/photographe.jpg" alt=""> -->
-								</div>portfolio-item-thumbnail
+								</div>
 
 							</div><!-- col -->
 							<div class="col-sm-8">
@@ -39,7 +42,7 @@
 									<h4>
 										<a title="<?= $projet["NOM"] ?>"><?= $projet["NOM"] ?></a>
 									</h4>
-									<a class="btn btn-blue" href="">
+									<a class="btn btn-blue" onclick="afficherProjet(<?= $projet['ID'] ?>)">
 										Voir les détails du projet
 									</a>
 
@@ -76,7 +79,7 @@
 								<div class="portfolio-item-thumbnail">
 								photo
 								<!-- <img src="images/projets/photographe.jpg" alt=""> -->
-								</div>portfolio-item-thumbnail
+								</div>
 
 							</div><!-- col -->
 							<div class="col-sm-8">
@@ -85,7 +88,7 @@
 									<h4>
 										<a title="<?= $projet["NOM"] ?>"><?= $projet["NOM"] ?></a>
 									</h4>
-									<a class="btn btn-blue" href="">
+									<a class="btn btn-blue" onclick="afficherProjet(<?= $projet['ID'] ?>)">
 										Voir les détails du projet
 									</a>
 
@@ -101,8 +104,50 @@
 		}
 	?>
 
-</div><!-- CONTENT -->
+</div>
 
+
+
+
+<div id="projet"></div>
+
+<template id="template-projet">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+			<br>
+				<center><h1 class="nom-projet"></h1></center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<img>
+			</div>
+
+			<div class="col-sm-8">
+
+				<p class="contenu-projet"></p>
+
+				<div class="col-sm-12 infos-sup-projet">
+					<div class="info-sup-projet">
+						<hr>
+						<h6 class="champ-projet"></h6>
+						<div class="info-projet"></div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+				<hr>
+					<a href="nos_projets" class="btn btn-blue btn_retour_projet">Retour à la liste des projets</a>
+				</div>
+
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- container -->
+
+</template>
+</div><!-- CONTENT -->
 
 <?php
 	require_once("partial/footer.php");

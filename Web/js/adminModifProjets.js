@@ -54,8 +54,6 @@ const ajouterProjet = () =>{
 	})
 	.done(response => {
 		message = JSON.parse(response);
-		console.log(message);
-
 		location.reload();
 	});
 
@@ -67,10 +65,6 @@ const ajouterInfoSup = () =>{
 
 		champID = "CHAMP" + i;
 		infoID = "INFO" + i;
-
-		console.log(document.getElementById(champID).value);
-		console.log(CKEDITOR.instances[infoID].getData());
-		console.log(document.querySelector("input[name = 'NOM']").value);
 
 		if(CKEDITOR.instances[infoID].getData() != ""){
 			$.ajax({
@@ -84,8 +78,6 @@ const ajouterInfoSup = () =>{
 			})
 			.done(response => {
 				message = JSON.parse(response);
-				console.log(message);
-
 				location.reload();
 			});
 		}

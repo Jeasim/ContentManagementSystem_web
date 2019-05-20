@@ -210,4 +210,36 @@
 
 			return $projetID;
 		}
+
+		public static function fetchProjet($projetID){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT * FROM projets WHERE id = ?");
+			$statement->bindParam(1, $projetID);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			$projet = null;
+
+			if($row = $statement->fetch()) {
+				$projetID = $row;
+			}
+
+			return $projetID;
+		}
+
+		public static function fetchInfosSupProjet($projetID){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT * FROM infos_projets WHERE id_projet = ?");
+			$statement->bindParam(1, $projetID);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			$infoSup = [];
+
+			while($row = $statement->fetch()) {
+				$infoSup[] = $row;
+			}
+
+			return $infoSup;
+		}
 	}
