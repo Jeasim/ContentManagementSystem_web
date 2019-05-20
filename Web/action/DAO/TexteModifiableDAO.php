@@ -183,4 +183,31 @@
 			$statement->execute();
 		}
 
+		public static function ajouterInfoSupProjet($nom, $champ, $info){
+			$projetID  = self::fetchProjetID($nom);
+
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare(" INSERT INTO infos_projets( id_projet, champ, info ) VALUES( ?, ?, ? )");
+			$statement->bindParam(1, $projetID);
+			$statement->bindParam(2, $champ);
+			$statement->bindParam(3, $info);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+		}
+
+		public static function fetchProjetID($nomProjet){
+			$connection = Connection::getConnection();
+			$statement = $connection->prepare("SELECT id FROM projets WHERE nom = ?");
+			$statement->bindParam(1, $nomProjet);
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$statement->execute();
+
+			$projetID = null;
+
+			if($row = $statement->fetch()) {
+				$projetID = $row['ID'];
+			}
+
+			return $projetID;
+		}
 	}

@@ -16,7 +16,7 @@ const formulaireAjouter = () =>{
 
 const ajouterNouveauProjet = () =>{
 	if(champsObligatoiresRemplis()){
-		// ajouterProjet();
+		ajouterProjet();
 		ajouterInfoSup();
 	}
 	else{
@@ -63,30 +63,32 @@ const ajouterProjet = () =>{
 
 const ajouterInfoSup = () =>{
 
-	id = "INFO" + compteurInputInfo;
-	console.log(CKEDITOR.instances[id].getData());
+	for (let i = 1; i <= compteurInputInfo; i++) {
 
-	for (let i = 1;  ) {
+		champID = "CHAMP" + i;
+		infoID = "INFO" + i;
 
-		// console.log(CKEDITOR.instances[i].getData());
+		console.log(document.getElementById(champID).value);
+		console.log(CKEDITOR.instances[infoID].getData());
+		console.log(document.querySelector("input[name = 'NOM']").value);
 
+		if(CKEDITOR.instances[infoID].getData() != ""){
+			$.ajax({
+				url : "ajouterInfosSupProjet.php",
+				type: "POST",
+				data: {
+					champ : 	document.getElementById(champID).value,
+					info : 		CKEDITOR.instances[infoID].getData(),
+					nom : 		document.querySelector("input[name = 'NOM']").value,
+				}
+			})
+			.done(response => {
+				message = JSON.parse(response);
+				console.log(message);
 
-
-		// $.ajax({
-		// 	url : "ajouterInfosSupProjet.php",
-		// 	type: "POST",
-		// 	data: {
-		// 		nom : 		document.querySelector("input[name = 'NOM']").value,
-		// 		contenu : 	CKEDITOR.instances.CONTENU.getData(),
-		// 		statut : 	document.getElementById("select-statut-input").value
-		// 	}
-		// })
-		// .done(response => {
-		// 	message = JSON.parse(response);
-		// 	console.log(message);
-
-		// 	location.reload();
-		// });
+				location.reload();
+			});
+		}
 	}
 }
 
