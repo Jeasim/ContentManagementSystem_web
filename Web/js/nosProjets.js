@@ -28,9 +28,6 @@ const remplirTemplateProjet = (infosProjet) =>{
 	node.querySelector(".contenu-projet").innerHTML = infosProjet.CONTENU;
 
 	nodeInfosSup = node.querySelector("#infos-sup-projet");
-	console.log(nodeInfosSup);
-
-
 	fetchInfosSup(infosProjet.ID, node);
 
 	projet.appendChild(node);
@@ -59,8 +56,10 @@ const fetchProjet = (projetIDParam) =>{
 			projetID : projetIDParam
 		}
     })
-    .done(response => {
-		infosProjet = JSON.parse(response);
+    .done(result => {
+		console.log(result);
+
+		infosProjet = JSON.parse(result);
 		remplirTemplateProjet(infosProjet)
 	});
 }

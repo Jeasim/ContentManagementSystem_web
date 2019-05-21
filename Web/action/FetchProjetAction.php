@@ -12,7 +12,6 @@
 
 		protected function executeAction() {
 
-			$this->result = TexteModifiableDAO::fetchProjet($_POST["projetID"]);
-
+			echo var_dump(TexteModifiableDAO::fetchProjet($_POST["projetID"]));
 		}
 	}

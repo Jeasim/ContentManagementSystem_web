@@ -231,10 +231,10 @@
 			$projet = null;
 
 			if($row = $statement->fetch()) {
-				$projetID = $row;
+				$projet = $row;
 			}
 
-			return $projetID;
+			return $projet;
 		}
 
 		public static function fetchInfosSupProjet($projetID){
