@@ -114,20 +114,26 @@ const ajouterInfoSup = () =>{
 
 
 const modifierProjet = (projetIDParam) =>{
-	$.ajax({
-		url : "modifierProjet.php",
-		type: "POST",
-		data: {
-			projetID :		projetIDParam,
-			nom : 		document.querySelector("input[name = 'NOM']").value,
-			contenu : 	CKEDITOR.instances.CONTENU.getData(),
-			statut : 	document.getElementById("select-statut-input").value
-		}
-	})
-	.done(response => {
-		message = JSON.parse(response);
-		modifierInfosProjet(projetIDParam);
-	});
+
+	if(champsObligatoiresRemplis()){
+		$.ajax({
+			url : "modifierProjet.php",
+			type: "POST",
+			data: {
+				projetID :		projetIDParam,
+				nom : 		document.querySelector("input[name = 'NOM']").value,
+				contenu : 	CKEDITOR.instances.CONTENU.getData(),
+				statut : 	document.getElementById("select-statut-input").value
+			}
+		})
+		.done(response => {
+			message = JSON.parse(response);
+			modifierInfosProjet(projetIDParam);
+		});
+	}
+	else{
+		alert("Les champs 'nom' et 'contenu' doivent être remplis'")
+	}
 }
 
 const modifierInfosProjet = (projetIDParam) =>{

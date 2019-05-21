@@ -26,7 +26,7 @@
 				<input type="password" name="admin-password" id="form-admin-password-input" class="form-info-input">
 			</div>
 
-			<button type="submit" id="form-connection-button">Connection</button>
+			<button type="submit" id="form-connection-button" class="btn btn-green">Connection</button>
 
 			<?php
 				if ($action->wrongLogin) {
