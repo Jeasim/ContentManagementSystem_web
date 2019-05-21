@@ -17,7 +17,7 @@
 			if(!empty($_POST["admin-username"]) && !empty($_POST["admin-password"])){
 				if(UserDAO::authenticate($_POST["admin-username"], $_POST["admin-password"])){
 
-					$_SESSION["visibility"] = CommonAction::$VISIBILITY_PUBLIC;
+					$_SESSION["visibility"] = CommonAction::$VISIBILITY_ADMINISTRATOR;
 					header("location:accueilAdmin");
 					exit;
 				}
