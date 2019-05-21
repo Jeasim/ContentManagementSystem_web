@@ -7,7 +7,7 @@
 		public $result;
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "fetch projet");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "fetch projet");
 		}
 
 		protected function executeAction() {

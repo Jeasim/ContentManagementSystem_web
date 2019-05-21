@@ -7,7 +7,7 @@
 		public $result;
 
 		public function __construct() {
-			parent::__construct(CommonAction::$VISIBILITY_ADMINISTRATOR, "Modification 'Projet'", "admin", null, null, "Administrateur");
+			parent::__construct(CommonAction::$VISIBILITY_PUBLIC, "Modification 'Projet'", "admin", null, null, "Administrateur");
 		}
 
 		protected function executeAction() {
