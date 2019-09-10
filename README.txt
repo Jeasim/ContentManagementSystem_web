@@ -1,22 +1,20 @@
 *-------------------------------------------------*
 *	Fonctionnement du site du CRISPESH	  *
-*	Réalisé par Jean-Simon Bondaz		  *
+*	RÃ©alisÃ© par Jean-Simon Bondaz		  *
 *-------------------------------------------------*
 
-- Pour initialiser les données du site, il faut rouler le script .sql dans Oracle situé dans le dossier BD du site web
+- Pour initialiser les donnÃ©es du site, il faut rouler le script .sql dans Oracle situÃ© dans le dossier BD du site web
 
-- Tel qu'indiqué dans le fichier action/DAO/constantes.php, voici l'identifiant de connection pour le connecter sur Oracle :
-	le nom de la base données est "DECINFO"
+- Tel qu'indiquÃ© dans le fichier action/DAO/constantes.php, voici l'identifiant de connection pour le connecter sur Oracle :
+	le nom de la base donnÃ©es est "DECINFO"
 	le nom d'usager est "e0836527"
 	le mot de passe est "AAAaaa123"
 
-- Pour le se connecter en mode administrateur, on doit accéder à la page .../portailAdmin
+- Pour le se connecter en mode administrateur, on doit accÃ©der Ã  la page .../portailAdmin
 	nom d'usager : admin
 	mot de passe : solutionAdmin
 
 - L'admin pourra modifier :
-	deux éléments de la page d'accueil (entête et présentation)
-	la page équipe (ajouter, modifier, supprimer des employés)
+	deux Ã©lÃ©ments de la page d'accueil (entÃªte et prÃ©sentation)
+	la page Ã©quipe (ajouter, modifier, supprimer des employÃ©s)
 	la page de projets (ajouter, modifier, supprimer des projets)
-
-- L'ajout d'images n'est malheureusement pas encore implémenté pour les projets
